@@ -16,7 +16,7 @@ namespace loaderMinecraft
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new load());
+            Application.Run(new LoaderLoading());
         }
     }
 }

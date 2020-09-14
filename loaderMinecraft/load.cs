@@ -18,12 +18,12 @@ namespace loaderMinecraft
         public load()
         {
             InitializeComponent();
-            guna2ShadowForm1.SetShadowForm(this);
+            _animate.SetAnimateWindow(this);
+            _ShadowForm.SetShadowForm(this);
         }
 
         string pathLauncher = Settings.Default["pathLauncher"].ToString();
         string pathMod = Settings.Default["pathMods"].ToString();
-        dowloand dw = new dowloand();
 
         void load_Load(object sender, EventArgs e)
         {
@@ -56,6 +56,8 @@ namespace loaderMinecraft
 
         void changeMods_Click(object sender, EventArgs e)
         {
+
+
             FolderBrowserDialog path = new FolderBrowserDialog();
             if (path.ShowDialog() == DialogResult.OK)
             {
@@ -73,14 +75,16 @@ namespace loaderMinecraft
             {
                 MessageBox.Show(item.Name);
             }
-            Console.ReadLine();
         }
 
         void playButt_Click(object sender, EventArgs e)
         {
             try
             {
-                dw.ShowDialog();
+                dowloand dw = new dowloand();
+                dw.Show();
+                dw.fix = false;
+                this.Hide();
             }
             catch (Exception ex)
             {
@@ -113,7 +117,10 @@ namespace loaderMinecraft
         {
             try
             {
-                проверкаМодов();
+                dowloand dw = new dowloand();
+                dw.Show();
+                dw.fix = true;
+                this.Hide();
             }
             catch (Exception ex)
             {
@@ -123,7 +130,21 @@ namespace loaderMinecraft
 
         private void load_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+            Application.Exit();
+        }
+
+        void _helpButt_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Помощь в использовании загрузчика:\n\n" +
+                            "Нажимая 'Играть' - у вас проверятся наличие необходимых модов, не нужные удалятся, нужные скачаются, если их нет, после чего запустится вау Лаунчер майнкрафта, к которому вы указали путь.\n" +
+                            "Нажимая 'Проверить моды' - произойдёт проверка модов без запуска Игры.\n" +
+                            "Нажимая 'Удалить моды' - вы очистите папку с модами.\n\n" +
+                            "Приятного использования :)", "Помощь в использовании.", MessageBoxButtons.OK);
+        }
+
+        void _logoGif_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nАУЕ");
         }
     }
 }

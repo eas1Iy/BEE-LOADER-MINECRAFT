@@ -35,6 +35,9 @@
   <PropertyGroup>
     <ApplicationIcon>Book_25711.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Guna.UI">
       <HintPath>X:\projects\EPIC SOFTWARE\others\guna\Guna.UI_WinForms\.net 4.0\Guna.UI.dll</HintPath>
@@ -58,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Internet.cs" />
     <Compile Include="load.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +74,12 @@
     <Compile Include="dowloand.Designer.cs">
       <DependentUpon>dowloand.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoaderLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoaderLoading.Designer.cs">
+      <DependentUpon>LoaderLoading.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="load.resx">
@@ -77,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="dowloand.resx">
       <DependentUpon>dowloand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoaderLoading.resx">
+      <DependentUpon>LoaderLoading.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -86,7 +99,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.manifest" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -103,6 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Book_25711.ico" />
+    <None Include="Resources\tenor.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

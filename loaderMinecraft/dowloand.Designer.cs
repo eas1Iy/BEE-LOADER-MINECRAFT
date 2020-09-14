@@ -31,10 +31,12 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(dowloand));
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2ProgressBar1 = new Guna.UI2.WinForms.Guna2ProgressBar();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this._elipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this._dragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this._dragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.guna2WinProgressIndicator1 = new Guna.UI2.WinForms.Guna2WinProgressIndicator();
+            this._ShadowForm = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
+            this._toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.SuspendLayout();
             // 
             // label1
@@ -42,49 +44,56 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.Font = new System.Drawing.Font("Bahnschrift Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.Gray;
-            this.label1.Location = new System.Drawing.Point(12, 26);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
+            this.label1.Location = new System.Drawing.Point(12, 207);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(545, 29);
+            this.label1.Size = new System.Drawing.Size(578, 29);
             this.label1.TabIndex = 1;
             this.label1.Text = "Загрузка модов....";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this._toolTip.SetToolTip(this.label1, "<b>Происходит загрузка модов, пожалуйста подождите!</b>");
             // 
-            // guna2ProgressBar1
+            // _elipse
             // 
-            this.guna2ProgressBar1.BorderRadius = 5;
-            this.guna2ProgressBar1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.guna2ProgressBar1.Location = new System.Drawing.Point(12, 12);
-            this.guna2ProgressBar1.Name = "guna2ProgressBar1";
-            this.guna2ProgressBar1.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ProgressBar1.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(198)))), ((int)(((byte)(255)))));
-            this.guna2ProgressBar1.ShadowDecoration.Parent = this.guna2ProgressBar1;
-            this.guna2ProgressBar1.Size = new System.Drawing.Size(545, 11);
-            this.guna2ProgressBar1.TabIndex = 2;
-            this.guna2ProgressBar1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this._elipse.BorderRadius = 15;
+            this._elipse.TargetControl = this;
             // 
-            // guna2Elipse1
+            // _dragControl2
             // 
-            this.guna2Elipse1.BorderRadius = 15;
-            this.guna2Elipse1.TargetControl = this;
+            this._dragControl2.TargetControl = this;
+            this._dragControl2.UseTransparentDrag = true;
             // 
-            // guna2DragControl1
+            // _dragControl1
             // 
-            this.guna2DragControl1.TargetControl = this;
-            this.guna2DragControl1.UseTransparentDrag = true;
+            this._dragControl1.TargetControl = this.label1;
+            this._dragControl1.UseTransparentDrag = true;
             // 
-            // guna2DragControl2
+            // guna2WinProgressIndicator1
             // 
-            this.guna2DragControl2.TargetControl = this.label1;
-            this.guna2DragControl2.UseTransparentDrag = true;
+            this.guna2WinProgressIndicator1.AnimationSpeed = 80;
+            this.guna2WinProgressIndicator1.AutoStart = true;
+            this.guna2WinProgressIndicator1.CircleSize = 5F;
+            this.guna2WinProgressIndicator1.Location = new System.Drawing.Point(226, 29);
+            this.guna2WinProgressIndicator1.Name = "guna2WinProgressIndicator1";
+            this.guna2WinProgressIndicator1.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
+            this.guna2WinProgressIndicator1.Size = new System.Drawing.Size(154, 154);
+            this.guna2WinProgressIndicator1.TabIndex = 2;
+            // 
+            // _toolTip
+            // 
+            this._toolTip.AllowLinksHandling = true;
+            this._toolTip.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F);
+            this._toolTip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
+            this._toolTip.MaximumSize = new System.Drawing.Size(0, 0);
+            this._toolTip.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
             // 
             // dowloand
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(569, 64);
-            this.Controls.Add(this.guna2ProgressBar1);
+            this.ClientSize = new System.Drawing.Size(602, 258);
+            this.Controls.Add(this.guna2WinProgressIndicator1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -99,10 +108,12 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2ProgressBar guna2ProgressBar1;
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
-        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
-        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl2;
+        private Guna.UI2.WinForms.Guna2Elipse _elipse;
+        private Guna.UI2.WinForms.Guna2DragControl _dragControl2;
+        private Guna.UI2.WinForms.Guna2DragControl _dragControl1;
+        private Guna.UI2.WinForms.Guna2WinProgressIndicator guna2WinProgressIndicator1;
+        private Guna.UI2.WinForms.Guna2ShadowForm _ShadowForm;
+        private Guna.UI2.WinForms.Guna2HtmlToolTip _toolTip;
     }
 }
 

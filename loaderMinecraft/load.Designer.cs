@@ -31,22 +31,27 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(load));
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
+            this._ShadowForm = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.playButt = new Guna.UI2.WinForms.Guna2Button();
             this.changeExe = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.pathMinecraft = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.pathMods = new System.Windows.Forms.Label();
             this.changeMods = new Guna.UI2.WinForms.Guna2Button();
             this.fixButt = new Guna.UI2.WinForms.Guna2Button();
             this.delButt = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2ResizeForm1 = new Guna.UI2.WinForms.Guna2ResizeForm(this.components);
+            this._ResizeForm = new Guna.UI2.WinForms.Guna2ResizeForm(this.components);
             this.guna2ResizeBox1 = new Guna.UI2.WinForms.Guna2ResizeBox();
-            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this._dragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this._dragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this._elipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.pathMods = new Guna.UI2.WinForms.Guna2TextBox();
+            this.pathMinecraft = new Guna.UI2.WinForms.Guna2TextBox();
+            this._animate = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
+            this._helpButt = new Guna.UI2.WinForms.Guna2Button();
+            this._logoGif = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this._logoGif)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -69,6 +74,7 @@
             this.playButt.CheckedState.Parent = this.playButt;
             this.playButt.Cursor = System.Windows.Forms.Cursors.Hand;
             this.playButt.CustomImages.Parent = this.playButt;
+            this.playButt.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
             this.playButt.Font = new System.Drawing.Font("Bahnschrift Condensed", 20F);
             this.playButt.ForeColor = System.Drawing.Color.White;
             this.playButt.HoverState.Parent = this.playButt;
@@ -88,13 +94,14 @@
             this.changeExe.CheckedState.Parent = this.changeExe;
             this.changeExe.Cursor = System.Windows.Forms.Cursors.Hand;
             this.changeExe.CustomImages.Parent = this.changeExe;
+            this.changeExe.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
             this.changeExe.Font = new System.Drawing.Font("Bahnschrift Condensed", 13F);
             this.changeExe.ForeColor = System.Drawing.Color.White;
             this.changeExe.HoverState.Parent = this.changeExe;
-            this.changeExe.Location = new System.Drawing.Point(412, 62);
+            this.changeExe.Location = new System.Drawing.Point(452, 62);
             this.changeExe.Name = "changeExe";
             this.changeExe.ShadowDecoration.Parent = this.changeExe;
-            this.changeExe.Size = new System.Drawing.Size(76, 23);
+            this.changeExe.Size = new System.Drawing.Size(76, 24);
             this.changeExe.TabIndex = 2;
             this.changeExe.Text = "Выбрать";
             this.changeExe.Click += new System.EventHandler(this.changeExe_Click);
@@ -111,19 +118,6 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Путь к майнкрафту:";
             // 
-            // pathMinecraft
-            // 
-            this.pathMinecraft.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pathMinecraft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.pathMinecraft.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.pathMinecraft.ForeColor = System.Drawing.Color.White;
-            this.pathMinecraft.Location = new System.Drawing.Point(158, 63);
-            this.pathMinecraft.Name = "pathMinecraft";
-            this.pathMinecraft.Size = new System.Drawing.Size(248, 24);
-            this.pathMinecraft.TabIndex = 4;
-            this.pathMinecraft.Text = "minecraft";
-            // 
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -136,20 +130,6 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Папка с модами:";
             // 
-            // pathMods
-            // 
-            this.pathMods.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pathMods.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.pathMods.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.pathMods.ForeColor = System.Drawing.Color.White;
-            this.pathMods.Location = new System.Drawing.Point(158, 107);
-            this.pathMods.Name = "pathMods";
-            this.pathMods.Size = new System.Drawing.Size(248, 24);
-            this.pathMods.TabIndex = 7;
-            this.pathMods.Text = "mods";
-            this.pathMods.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // changeMods
             // 
             this.changeMods.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -158,13 +138,14 @@
             this.changeMods.CheckedState.Parent = this.changeMods;
             this.changeMods.Cursor = System.Windows.Forms.Cursors.Hand;
             this.changeMods.CustomImages.Parent = this.changeMods;
+            this.changeMods.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
             this.changeMods.Font = new System.Drawing.Font("Bahnschrift Condensed", 13F);
             this.changeMods.ForeColor = System.Drawing.Color.White;
             this.changeMods.HoverState.Parent = this.changeMods;
-            this.changeMods.Location = new System.Drawing.Point(412, 106);
+            this.changeMods.Location = new System.Drawing.Point(452, 107);
             this.changeMods.Name = "changeMods";
             this.changeMods.ShadowDecoration.Parent = this.changeMods;
-            this.changeMods.Size = new System.Drawing.Size(76, 23);
+            this.changeMods.Size = new System.Drawing.Size(76, 24);
             this.changeMods.TabIndex = 6;
             this.changeMods.Text = "Выбрать";
             this.changeMods.Click += new System.EventHandler(this.changeMods_Click);
@@ -177,6 +158,7 @@
             this.fixButt.CheckedState.Parent = this.fixButt;
             this.fixButt.Cursor = System.Windows.Forms.Cursors.Hand;
             this.fixButt.CustomImages.Parent = this.fixButt;
+            this.fixButt.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
             this.fixButt.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F);
             this.fixButt.ForeColor = System.Drawing.Color.White;
             this.fixButt.HoverState.Parent = this.fixButt;
@@ -196,6 +178,7 @@
             this.delButt.CheckedState.Parent = this.delButt;
             this.delButt.Cursor = System.Windows.Forms.Cursors.Hand;
             this.delButt.CustomImages.Parent = this.delButt;
+            this.delButt.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
             this.delButt.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F);
             this.delButt.ForeColor = System.Drawing.Color.White;
             this.delButt.HoverState.Parent = this.delButt;
@@ -212,16 +195,16 @@
             this.guna2ResizeBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ResizeBox1.Cursor = System.Windows.Forms.Cursors.SizeNWSE;
             this.guna2ResizeBox1.ForeColor = System.Drawing.Color.Empty;
-            this.guna2ResizeBox1.Location = new System.Drawing.Point(468, 237);
+            this.guna2ResizeBox1.Location = new System.Drawing.Point(508, 237);
             this.guna2ResizeBox1.Name = "guna2ResizeBox1";
             this.guna2ResizeBox1.Size = new System.Drawing.Size(20, 20);
             this.guna2ResizeBox1.TabIndex = 10;
             this.guna2ResizeBox1.TargetControl = this;
             // 
-            // guna2DragControl1
+            // _dragControl1
             // 
-            this.guna2DragControl1.TargetControl = this;
-            this.guna2DragControl1.UseTransparentDrag = true;
+            this._dragControl1.TargetControl = this;
+            this._dragControl1.UseTransparentDrag = true;
             // 
             // guna2ControlBox1
             // 
@@ -230,7 +213,7 @@
             this.guna2ControlBox1.FillColor = System.Drawing.Color.White;
             this.guna2ControlBox1.HoverState.Parent = this.guna2ControlBox1;
             this.guna2ControlBox1.IconColor = System.Drawing.Color.Black;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(458, 2);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(498, 2);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.ShadowDecoration.Parent = this.guna2ControlBox1;
             this.guna2ControlBox1.Size = new System.Drawing.Size(30, 19);
@@ -244,44 +227,153 @@
             this.guna2ControlBox2.FillColor = System.Drawing.Color.White;
             this.guna2ControlBox2.HoverState.Parent = this.guna2ControlBox2;
             this.guna2ControlBox2.IconColor = System.Drawing.Color.Black;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(422, 2);
+            this.guna2ControlBox2.Location = new System.Drawing.Point(462, 2);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
             this.guna2ControlBox2.ShadowDecoration.Parent = this.guna2ControlBox2;
             this.guna2ControlBox2.Size = new System.Drawing.Size(30, 19);
             this.guna2ControlBox2.TabIndex = 12;
             // 
-            // guna2DragControl2
+            // _dragControl2
             // 
-            this.guna2DragControl2.TargetControl = this.label1;
-            this.guna2DragControl2.UseTransparentDrag = true;
+            this._dragControl2.TargetControl = this.label1;
+            this._dragControl2.UseTransparentDrag = true;
+            // 
+            // _elipse
+            // 
+            this._elipse.TargetControl = this;
+            // 
+            // pathMods
+            // 
+            this.pathMods.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pathMods.BackColor = System.Drawing.Color.White;
+            this.pathMods.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(162)))), ((int)(((byte)(44)))));
+            this.pathMods.BorderRadius = 8;
+            this.pathMods.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.pathMods.DefaultText = "";
+            this.pathMods.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.pathMods.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.pathMods.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.pathMods.DisabledState.Parent = this.pathMods;
+            this.pathMods.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.pathMods.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
+            this.pathMods.FocusedState.BorderColor = System.Drawing.Color.Black;
+            this.pathMods.FocusedState.Parent = this.pathMods;
+            this.pathMods.Font = new System.Drawing.Font("Bahnschrift Condensed", 10F);
+            this.pathMods.ForeColor = System.Drawing.Color.White;
+            this.pathMods.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(162)))), ((int)(((byte)(44)))));
+            this.pathMods.HoverState.Parent = this.pathMods;
+            this.pathMods.Location = new System.Drawing.Point(156, 107);
+            this.pathMods.Margin = new System.Windows.Forms.Padding(5, 11, 5, 11);
+            this.pathMods.Name = "pathMods";
+            this.pathMods.PasswordChar = '\0';
+            this.pathMods.PlaceholderForeColor = System.Drawing.Color.White;
+            this.pathMods.PlaceholderText = "";
+            this.pathMods.SelectedText = "";
+            this.pathMods.ShadowDecoration.Parent = this.pathMods;
+            this.pathMods.Size = new System.Drawing.Size(288, 24);
+            this.pathMods.TabIndex = 13;
+            // 
+            // pathMinecraft
+            // 
+            this.pathMinecraft.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pathMinecraft.Animated = true;
+            this.pathMinecraft.AutoRoundedCorners = true;
+            this.pathMinecraft.BackColor = System.Drawing.Color.White;
+            this.pathMinecraft.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(162)))), ((int)(((byte)(44)))));
+            this.pathMinecraft.BorderRadius = 8;
+            this.pathMinecraft.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.pathMinecraft.DefaultText = "";
+            this.pathMinecraft.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.pathMinecraft.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.pathMinecraft.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.pathMinecraft.DisabledState.Parent = this.pathMinecraft;
+            this.pathMinecraft.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.pathMinecraft.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
+            this.pathMinecraft.FocusedState.BorderColor = System.Drawing.Color.Black;
+            this.pathMinecraft.FocusedState.Parent = this.pathMinecraft;
+            this.pathMinecraft.Font = new System.Drawing.Font("Bahnschrift Condensed", 10F);
+            this.pathMinecraft.ForeColor = System.Drawing.Color.White;
+            this.pathMinecraft.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(162)))), ((int)(((byte)(44)))));
+            this.pathMinecraft.HoverState.Parent = this.pathMinecraft;
+            this.pathMinecraft.Location = new System.Drawing.Point(157, 62);
+            this.pathMinecraft.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.pathMinecraft.Name = "pathMinecraft";
+            this.pathMinecraft.PasswordChar = '\0';
+            this.pathMinecraft.PlaceholderForeColor = System.Drawing.Color.White;
+            this.pathMinecraft.PlaceholderText = "";
+            this.pathMinecraft.SelectedText = "";
+            this.pathMinecraft.ShadowDecoration.Parent = this.pathMinecraft;
+            this.pathMinecraft.Size = new System.Drawing.Size(288, 24);
+            this.pathMinecraft.TabIndex = 14;
+            // 
+            // _animate
+            // 
+            this._animate.AnimationType = Guna.UI2.WinForms.Guna2AnimateWindow.AnimateWindowType.AW_HOR_POSITIVE;
+            // 
+            // _helpButt
+            // 
+            this._helpButt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this._helpButt.Animated = true;
+            this._helpButt.BorderRadius = 8;
+            this._helpButt.CheckedState.Parent = this._helpButt;
+            this._helpButt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this._helpButt.CustomImages.Parent = this._helpButt;
+            this._helpButt.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
+            this._helpButt.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F);
+            this._helpButt.ForeColor = System.Drawing.Color.White;
+            this._helpButt.HoverState.Parent = this._helpButt;
+            this._helpButt.Location = new System.Drawing.Point(323, 224);
+            this._helpButt.Name = "_helpButt";
+            this._helpButt.ShadowDecoration.Parent = this._helpButt;
+            this._helpButt.Size = new System.Drawing.Size(70, 23);
+            this._helpButt.TabIndex = 15;
+            this._helpButt.Text = "Помощь";
+            this._helpButt.Click += new System.EventHandler(this._helpButt_Click);
+            // 
+            // _logoGif
+            // 
+            this._logoGif.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this._logoGif.Image = global::loaderMinecraft.Properties.Resources.tenor;
+            this._logoGif.Location = new System.Drawing.Point(399, 197);
+            this._logoGif.Name = "_logoGif";
+            this._logoGif.Size = new System.Drawing.Size(100, 50);
+            this._logoGif.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this._logoGif.TabIndex = 16;
+            this._logoGif.TabStop = false;
+            this._logoGif.Click += new System.EventHandler(this._logoGif_Click);
             // 
             // load
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(491, 259);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.ClientSize = new System.Drawing.Size(531, 259);
+            this.Controls.Add(this._helpButt);
+            this.Controls.Add(this._logoGif);
+            this.Controls.Add(this.pathMinecraft);
+            this.Controls.Add(this.pathMods);
             this.Controls.Add(this.guna2ControlBox2);
             this.Controls.Add(this.guna2ControlBox1);
             this.Controls.Add(this.guna2ResizeBox1);
             this.Controls.Add(this.delButt);
             this.Controls.Add(this.fixButt);
-            this.Controls.Add(this.pathMods);
             this.Controls.Add(this.changeMods);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.pathMinecraft);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.changeExe);
             this.Controls.Add(this.playButt);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(472, 204);
+            this.MinimumSize = new System.Drawing.Size(480, 204);
             this.Name = "load";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "load";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.load_FormClosing);
             this.Load += new System.EventHandler(this.load_Load);
+            ((System.ComponentModel.ISupportInitialize)(this._logoGif)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -290,21 +382,25 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
+        private Guna.UI2.WinForms.Guna2ShadowForm _ShadowForm;
         private Guna.UI2.WinForms.Guna2Button playButt;
         private Guna.UI2.WinForms.Guna2Button changeExe;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label pathMinecraft;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label pathMods;
         private Guna.UI2.WinForms.Guna2Button changeMods;
         private Guna.UI2.WinForms.Guna2Button fixButt;
         private Guna.UI2.WinForms.Guna2Button delButt;
-        private Guna.UI2.WinForms.Guna2ResizeForm guna2ResizeForm1;
+        private Guna.UI2.WinForms.Guna2ResizeForm _ResizeForm;
         private Guna.UI2.WinForms.Guna2ResizeBox guna2ResizeBox1;
-        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
+        private Guna.UI2.WinForms.Guna2DragControl _dragControl1;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
-        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl2;
+        private Guna.UI2.WinForms.Guna2DragControl _dragControl2;
+        private Guna.UI2.WinForms.Guna2Elipse _elipse;
+        private Guna.UI2.WinForms.Guna2TextBox pathMods;
+        private Guna.UI2.WinForms.Guna2TextBox pathMinecraft;
+        private Guna.UI2.WinForms.Guna2AnimateWindow _animate;
+        private Guna.UI2.WinForms.Guna2Button _helpButt;
+        private System.Windows.Forms.PictureBox _logoGif;
     }
 }
