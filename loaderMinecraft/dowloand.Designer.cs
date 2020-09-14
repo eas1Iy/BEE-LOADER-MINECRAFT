@@ -43,9 +43,9 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.Font = new System.Drawing.Font("Bahnschrift Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Font = new System.Drawing.Font("Malgun Gothic", 17F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
-            this.label1.Location = new System.Drawing.Point(12, 207);
+            this.label1.Location = new System.Drawing.Point(12, 209);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(578, 29);
             this.label1.TabIndex = 1;
@@ -82,7 +82,7 @@
             // _toolTip
             // 
             this._toolTip.AllowLinksHandling = true;
-            this._toolTip.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F);
+            this._toolTip.Font = new System.Drawing.Font("Malgun Gothic", 14F, System.Drawing.FontStyle.Bold);
             this._toolTip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
             this._toolTip.MaximumSize = new System.Drawing.Size(0, 0);
             this._toolTip.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
@@ -99,7 +99,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "dowloand";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "СП405 - Обновление...";
             this.Load += new System.EventHandler(this.dowloand_Load);
             this.ResumeLayout(false);
 

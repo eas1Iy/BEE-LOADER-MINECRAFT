@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoaderLoading));
             this._animate = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this._elipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this._drag = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this._shadow = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this._animateOff = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
+            this._shadow = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +51,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.pictureBox1.Image = global::loaderMinecraft.Properties.Resources.tenor;
+            this.pictureBox1.Image = global::BEE.Properties.Resources.tenor;
             this.pictureBox1.Location = new System.Drawing.Point(142, 38);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(243, 177);
@@ -71,9 +72,10 @@
             this.ClientSize = new System.Drawing.Size(531, 259);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoaderLoading";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LoaderLoading";
+            this.Text = "СП405 - Загрузка программы..";
             this.Load += new System.EventHandler(this.LoaderLoading_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -85,8 +87,8 @@
         private Guna.UI2.WinForms.Guna2AnimateWindow _animate;
         private Guna.UI2.WinForms.Guna2Elipse _elipse;
         private Guna.UI2.WinForms.Guna2DragControl _drag;
-        private Guna.UI2.WinForms.Guna2ShadowForm _shadow;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Guna.UI2.WinForms.Guna2AnimateWindow _animateOff;
+        private Guna.UI2.WinForms.Guna2ShadowForm _shadow;
     }
 }

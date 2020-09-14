@@ -1,15 +1,10 @@
-﻿using loaderMinecraft.Properties;
+﻿using BEE.Properties;
 using Renci.SshNet;
-using Renci.SshNet.Sftp;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,15 +18,14 @@ namespace loaderMinecraft
             InitializeComponent();
         }
 
+        string gamePath = Settings.Default["pathLauncher"].ToString();
         public string pathMod = "";
-        List<string>serverMods;
-        List<string>userMods;
+        List<string> serverMods;
         public bool fix;
-        bool a=false;
         Thread ss;
 
 
-        
+
         void dowloand_Load(object sender, EventArgs e)
         {
             DownloadAll();
@@ -48,7 +42,7 @@ namespace loaderMinecraft
         {
             string remoteDirectory = "/user_mods/";
             string localDirectory = Convert.ToString(Settings.Default["pathMods"] + @"\");
-            string gamePath = Settings.Default["pathLauncher"].ToString();
+
             //
             serverMods = new List<string>();
             try
@@ -62,25 +56,25 @@ namespace loaderMinecraft
                     foreach (var file in files)
                     {
                         string remoteFileName = file.Name;
-                            serverMods.Add(remoteFileName);
+                        serverMods.Add(remoteFileName);
                     }
                 }
                 // удаление лишнего
                 List<string> filezs = Directory.GetFiles(localDirectory, "*.*", SearchOption.AllDirectories).ToList();
-                foreach(string s in filezs)
+                foreach (string s in filezs)
                 {
-                    string s1=s.Replace(localDirectory, "");
+                    string s1 = s.Replace(localDirectory, "");
                     if (!serverMods.Contains(s1))
                     {
-                        File.Delete(localDirectory+s1);
-                    } 
+                        File.Delete(localDirectory + s1);
+                    }
                 }
                 // скачивание нового
                 using (var sftp = new SftpClient("s24.joinserver.ru", 2022, "y5bq0wrk.b11838bf", "brN-eNb-eKq-B7y"))
                 {
                     sftp.Connect();
 
-                foreach (string s in serverMods)
+                    foreach (string s in serverMods)
                     {
                         List<string> s2 = filezs;
                         string[] a = s2.ToArray();
@@ -98,9 +92,10 @@ namespace loaderMinecraft
                         }
                     }
                 }
-                 if (fix == false)
+                if (fix == false)
                 {
-                    Process.Start(gamePath);
+                    startMinecraft();
+                    // 
                     await Task.Delay(200);
                     Application.Exit();
                 }
@@ -112,16 +107,13 @@ namespace loaderMinecraft
             }
             catch (Exception ex)
             {
-               MessageBox.Show(ex.ToString(), "Ошибка обновления.", MessageBoxButtons.OK);
+                MessageBox.Show(ex.ToString(), "Ошибка обновления.", MessageBoxButtons.OK);
             }
         }
-        public void cs()
+        public void startMinecraft()
         {
-            while (ss.IsAlive)
-            {
-
-            }
-            
+            Process.Start(gamePath);
+            //Process.Start(@"C:\Program Files\Java\jre1.8.0_261\bin\java.exe - Xmx1G - Djava.library.path = C:\Users\eas1ly\AppData\Roaming\.minecraft\versions\Forge 1.12.2\natives\ -cp C:\Users\eas1ly\AppData\Roaming\.minecraft\versions\Forge 1.12.2\Forge 1.12.2.jar; --assetIndex 1.8 --uuid 1a2b3c4d5e6f7g8h9i0g --accessToken 1a2b3c4d5e6f7g8h9i0g --userProperties {" + "twitch_access_token"+ ":[" + "1a2b3c4d5e6f7g8h9i0g" + "]} --userType mojang --server s24.joinserver.ru --port 25750 --height 480--width 854");
         }
     }
 }
