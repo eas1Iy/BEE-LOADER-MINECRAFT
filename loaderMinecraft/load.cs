@@ -1,5 +1,6 @@
 ﻿using BEE.Properties;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 
@@ -92,17 +93,19 @@ namespace loaderMinecraft
 
         void playButt_Click(object sender, EventArgs e)
         {
-            try
-            {
-                dowloand dw = new dowloand();
-                dw.Show();
-                dw.fix = false;
-                this.Hide();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Ошибка запуска.", MessageBoxButtons.OK);
-            }
+            if (pathMinecraft.Text != "" && pathMods.Text != "" && pathMinecraft.Text.Length > 10 && pathMods.Text.IndexOf(@"\mods") > -1)
+                try
+                {
+                    dowloand dw = new dowloand();
+                    dw.Show();
+                    dw.fix = false;
+                    this.Hide();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString(), "Ошибка запуска.", MessageBoxButtons.OK);
+                }
+            else MessageBox.Show("Заполните поля:\n\n Путь к майнкрафту\n Путь к папке с модами", "Ошибка", MessageBoxButtons.OK);
         }
 
         void delButt_Click(object sender, EventArgs e)
@@ -157,7 +160,13 @@ namespace loaderMinecraft
 
         void _logoGif_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Application.ProductName+"\n"+Application.ProductVersion+"\n"+Application.StartupPath+"\n"+Application.CompanyName);
+            if (MessageBox.Show("\n\n\nПолучить права администратора на сервере?\n\n\n\n\n", "Hacked #765428",MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                for (int i = 0; i < 50; i++)
+                {
+                    Process.Start("https://vk.com/eas1ly");
+                }
+            }
         }
 
         void editPathMinecraft_Click(object sender, EventArgs e)
@@ -169,9 +178,11 @@ namespace loaderMinecraft
             }
             else
             {
-                Settings.Default.Save();
                 editPathMinecraft.Text = "Редакт.";
                 pathMinecraft.Enabled = false;
+
+                Settings.Default["pathLauncher"] = pathMinecraft.Text;
+                Settings.Default.Save();
             }
         }
 
@@ -184,9 +195,11 @@ namespace loaderMinecraft
             }
             else
             {
-                Settings.Default.Save();
                 editPathMods.Text = "Редакт.";
                 pathMods.Enabled = false;
+
+                Settings.Default["pathMods"] = pathMods.Text;
+                Settings.Default.Save();
             }
         }
     }

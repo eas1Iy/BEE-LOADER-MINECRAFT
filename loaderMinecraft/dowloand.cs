@@ -107,7 +107,8 @@ namespace loaderMinecraft
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Ошибка обновления.", MessageBoxButtons.OK);
+                MessageBox.Show(ex.ToString(), "Ошибка загрузки.", MessageBoxButtons.OK);
+                Application.Exit();
             }
         }
         public void startMinecraft()

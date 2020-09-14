@@ -50,15 +50,15 @@
             this._animate = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this._helpButt = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.editPathMods = new Guna.UI2.WinForms.Guna2Button();
+            this.editPathMinecraft = new Guna.UI2.WinForms.Guna2Button();
             this.seprator = new Guna.UI2.WinForms.Guna2Separator();
             this._dragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this._dragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.editPathMods = new Guna.UI2.WinForms.Guna2Button();
-            this.editPathMinecraft = new Guna.UI2.WinForms.Guna2Button();
             this.tooltip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+            this._logoGif = new System.Windows.Forms.PictureBox();
             this._anim = new Guna.UI2.WinForms.Guna2Transition();
             this._anim2 = new Guna.UI2.WinForms.Guna2Transition();
-            this._logoGif = new System.Windows.Forms.PictureBox();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._logoGif)).BeginInit();
             this.SuspendLayout();
@@ -132,7 +132,7 @@
             this._anim.SetDecoration(this.pathMi, Guna.UI2.AnimatorNS.DecorationType.None);
             this._anim2.SetDecoration(this.pathMi, Guna.UI2.AnimatorNS.DecorationType.None);
             this.pathMi.Font = new System.Drawing.Font("Malgun Gothic", 12F);
-            this.pathMi.Location = new System.Drawing.Point(7, 4);
+            this.pathMi.Location = new System.Drawing.Point(5, 4);
             this.pathMi.Name = "pathMi";
             this.pathMi.Size = new System.Drawing.Size(161, 21);
             this.pathMi.TabIndex = 3;
@@ -349,7 +349,7 @@
             // 
             // _animate
             // 
-            this._animate.AnimationType = Guna.UI2.WinForms.Guna2AnimateWindow.AnimateWindowType.AW_HOR_POSITIVE;
+            this._animate.AnimationType = Guna.UI2.WinForms.Guna2AnimateWindow.AnimateWindowType.AW_BLEND;
             // 
             // _helpButt
             // 
@@ -395,30 +395,6 @@
             this.guna2GradientPanel1.Size = new System.Drawing.Size(542, 79);
             this.guna2GradientPanel1.TabIndex = 17;
             this.guna2GradientPanel1.Visible = false;
-            // 
-            // seprator
-            // 
-            this.seprator.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._anim2.SetDecoration(this.seprator, Guna.UI2.AnimatorNS.DecorationType.None);
-            this._anim.SetDecoration(this.seprator, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.seprator.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
-            this.seprator.Location = new System.Drawing.Point(37, 158);
-            this.seprator.Name = "seprator";
-            this.seprator.Size = new System.Drawing.Size(465, 5);
-            this.seprator.TabIndex = 18;
-            this.seprator.Visible = false;
-            // 
-            // _dragControl2
-            // 
-            this._dragControl2.TargetControl = this._welcomLbl;
-            this._dragControl2.UseTransparentDrag = true;
-            // 
-            // _dragControl1
-            // 
-            this._dragControl1.TargetControl = this;
-            this._dragControl1.UseTransparentDrag = true;
             // 
             // editPathMods
             // 
@@ -470,6 +446,30 @@
             this.tooltip.SetToolTip(this.editPathMinecraft, "Необходимо сохранять, после ручного редактирования!");
             this.editPathMinecraft.Click += new System.EventHandler(this.editPathMinecraft_Click);
             // 
+            // seprator
+            // 
+            this.seprator.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._anim2.SetDecoration(this.seprator, Guna.UI2.AnimatorNS.DecorationType.None);
+            this._anim.SetDecoration(this.seprator, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.seprator.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
+            this.seprator.Location = new System.Drawing.Point(37, 158);
+            this.seprator.Name = "seprator";
+            this.seprator.Size = new System.Drawing.Size(465, 5);
+            this.seprator.TabIndex = 18;
+            this.seprator.Visible = false;
+            // 
+            // _dragControl2
+            // 
+            this._dragControl2.TargetControl = this._welcomLbl;
+            this._dragControl2.UseTransparentDrag = true;
+            // 
+            // _dragControl1
+            // 
+            this._dragControl1.TargetControl = this;
+            this._dragControl1.UseTransparentDrag = true;
+            // 
             // tooltip
             // 
             this.tooltip.AllowLinksHandling = true;
@@ -479,6 +479,23 @@
             this.tooltip.MaximumSize = new System.Drawing.Size(0, 0);
             this.tooltip.TitleFont = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.tooltip.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
+            // 
+            // _logoGif
+            // 
+            this._logoGif.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this._logoGif.Cursor = System.Windows.Forms.Cursors.Hand;
+            this._anim.SetDecoration(this._logoGif, Guna.UI2.AnimatorNS.DecorationType.None);
+            this._anim2.SetDecoration(this._logoGif, Guna.UI2.AnimatorNS.DecorationType.None);
+            this._logoGif.Image = global::BEE.Properties.Resources.tenor;
+            this._logoGif.Location = new System.Drawing.Point(411, 192);
+            this._logoGif.Name = "_logoGif";
+            this._logoGif.Size = new System.Drawing.Size(50, 50);
+            this._logoGif.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this._logoGif.TabIndex = 16;
+            this._logoGif.TabStop = false;
+            this.tooltip.SetToolTip(this._logoGif, "Да ты пиздец &#128169;");
+            this._logoGif.Visible = false;
+            this._logoGif.Click += new System.EventHandler(this._logoGif_Click);
             // 
             // _anim
             // 
@@ -504,7 +521,7 @@
             // 
             // _anim2
             // 
-            this._anim2.AnimationType = Guna.UI2.AnimatorNS.AnimationType.HorizSlide;
+            this._anim2.AnimationType = Guna.UI2.AnimatorNS.AnimationType.HorizBlind;
             this._anim2.Cursor = null;
             animation2.AnimateOnlyDifferences = true;
             animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
@@ -514,7 +531,7 @@
             animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
             animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
             animation2.MosaicSize = 0;
-            animation2.Padding = new System.Windows.Forms.Padding(0);
+            animation2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
             animation2.RotateCoeff = 0F;
             animation2.RotateLimit = 0F;
             animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
@@ -523,23 +540,6 @@
             animation2.TransparencyCoeff = 0F;
             this._anim2.DefaultAnimation = animation2;
             this._anim2.Interval = 15;
-            // 
-            // _logoGif
-            // 
-            this._logoGif.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._logoGif.Cursor = System.Windows.Forms.Cursors.Hand;
-            this._anim.SetDecoration(this._logoGif, Guna.UI2.AnimatorNS.DecorationType.None);
-            this._anim2.SetDecoration(this._logoGif, Guna.UI2.AnimatorNS.DecorationType.None);
-            this._logoGif.Image = global::BEE.Properties.Resources.tenor;
-            this._logoGif.Location = new System.Drawing.Point(411, 192);
-            this._logoGif.Name = "_logoGif";
-            this._logoGif.Size = new System.Drawing.Size(50, 50);
-            this._logoGif.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this._logoGif.TabIndex = 16;
-            this._logoGif.TabStop = false;
-            this.tooltip.SetToolTip(this._logoGif, "Да ты пиздец &#128169;");
-            this._logoGif.Visible = false;
-            this._logoGif.Click += new System.EventHandler(this._logoGif_Click);
             // 
             // load
             // 

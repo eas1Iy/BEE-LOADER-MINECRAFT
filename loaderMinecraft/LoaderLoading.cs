@@ -25,6 +25,38 @@ namespace loaderMinecraft
                 return false;
         }
 
+        bool listUpdate()
+        {
+            if (inet() == true)
+            {
+                using (var sftp = new SftpClient("s24.joinserver.ru", 2022, "y5bq0wrk.b11838bf", "brN-eNb-eKq-B7y"))
+                {
+                    try
+                    {
+                        Stream vers = File.OpenWrite(@"temp_update.ini");
+                        sftp.Connect();
+                        sftp.DownloadFile(@"/LOADER/update.txt", vers);
+                        vers.Dispose();
+                        string updateList = File.ReadAllText(@"temp_update.ini");
+                        if (File.Exists(@"temp_update.ini"))
+                        {
+                            update.Text = updateList;
+                            _anim.Hide(_updateLoading);
+                            _anim.Show(update);
+                        }
+                        File.Delete(@"temp_update.ini");
+                    }
+                    catch { }
+                }
+                    return true;
+            }
+            else
+            {
+                return false;
+            }
+                
+        }
+
         bool updates()
         {
             if (inet() == true)
@@ -68,6 +100,7 @@ namespace loaderMinecraft
 
                                 pc.Start();
 
+                                sftp.Disconnect();
                                 File.Delete(@"temp_version.ini");
                                 Application.Exit();
                             }
@@ -94,14 +127,23 @@ namespace loaderMinecraft
 
         async void LoaderLoading_Load(object sender, EventArgs e)
         {
-            if (await Task.Run(() => updates()) == true)
+            _anim.Show(pictureBox1);
+            if (await Task.Run(() => listUpdate()))
             {
-                load lzd = new load();
-                this.Hide();
-                lzd.Show();
+                if (await Task.Run(() => updates()) == true)
+                {
+                    load lzd = new load();
+                    this.Hide();
+                    lzd.Show();
+                }
+                else
+                {
+                    Application.Exit();
+                }
             }
             else
             {
+                MessageBox.Show("Ошибка получения данных об обновлении!", "Ошибка", MessageBoxButtons.OK);
                 Application.Exit();
             }
         }
