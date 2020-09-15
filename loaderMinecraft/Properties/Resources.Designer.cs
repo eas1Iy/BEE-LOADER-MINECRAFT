@@ -63,9 +63,9 @@ namespace BEE.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tenor {
+        internal static System.Drawing.Bitmap bee_animator {
             get {
-                object obj = ResourceManager.GetObject("tenor", resourceCulture);
+                object obj = ResourceManager.GetObject("bee_animator", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

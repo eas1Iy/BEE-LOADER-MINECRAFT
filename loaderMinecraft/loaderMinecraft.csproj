@@ -17,7 +17,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+    <Optimize>true</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -34,10 +34,10 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <ApplicationIcon>Others\icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationManifest>Others\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Guna.UI">
@@ -45,6 +45,15 @@
     </Reference>
     <Reference Include="Guna.UI2">
       <HintPath>X:\projects\разное\guna\Guna.UI2_WinFroms\.net 4.0\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack">
+      <HintPath>X:\projects\разное\need launcher\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell">
+      <HintPath>X:\projects\разное\need launcher\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.ShellExtensions">
+      <HintPath>X:\projects\разное\need launcher\Microsoft.WindowsAPICodePack.ShellExtensions.dll</HintPath>
     </Reference>
     <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
       <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
@@ -62,34 +71,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Internet.cs" />
-    <Compile Include="load.cs">
+    <Compile Include="Others\Internet.cs" />
+    <Compile Include="Forms\load.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="load.Designer.cs">
+    <Compile Include="Forms\load.Designer.cs">
       <DependentUpon>load.cs</DependentUpon>
     </Compile>
-    <Compile Include="dowloand.cs">
+    <Compile Include="Forms\dowloand.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="dowloand.Designer.cs">
+    <Compile Include="Forms\dowloand.Designer.cs">
       <DependentUpon>dowloand.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoaderLoading.cs">
+    <Compile Include="Forms\LoaderLoading.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoaderLoading.Designer.cs">
+    <Compile Include="Forms\LoaderLoading.Designer.cs">
       <DependentUpon>LoaderLoading.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Others\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="load.resx">
+    <EmbeddedResource Include="Forms\load.resx">
       <DependentUpon>load.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="dowloand.resx">
+    <EmbeddedResource Include="Forms\dowloand.resx">
       <DependentUpon>dowloand.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoaderLoading.resx">
+    <EmbeddedResource Include="Forms\LoaderLoading.resx">
       <DependentUpon>LoaderLoading.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -102,8 +111,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="app.manifest" />
-    <None Include="packages.config" />
+    <None Include="Others\app.manifest" />
+    <None Include="Others\packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -115,11 +124,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="Others\App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Book_25711.ico" />
-    <Content Include="icon.ico" />
+    <Content Include="Others\icon.ico" />
     <None Include="Resources\tenor.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

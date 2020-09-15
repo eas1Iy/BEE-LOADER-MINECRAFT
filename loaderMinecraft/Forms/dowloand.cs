@@ -1,4 +1,5 @@
 ﻿using BEE.Properties;
+using Guna.UI.Lib.ScrollBar;
 using Renci.SshNet;
 using System;
 using System.Collections.Generic;
@@ -24,14 +25,43 @@ namespace loaderMinecraft
         public bool fix;
         Thread ss;
 
-
-
-        void dowloand_Load(object sender, EventArgs e)
+        async void dowloand_Load(object sender, EventArgs e)
         {
-            DownloadAll();
+            if (await Task.Run(() => show()) == true)
+                 await Task.Run(() => DownloadAll());
         }
 
-        public void DownloadAll()
+        bool show()  // Загрузка списка обновленных модов
+        {
+            _anim.Show(_loadingMods);
+            _anim.Show(_labelLoading);
+            _anim.Show(gunaVSeparator1);
+
+            using (var sftp = new SftpClient("s24.joinserver.ru", 2022, "y5bq0wrk.b11838bf", "brN-eNb-eKq-B7y"))
+            {
+                try
+                {
+                    Stream vers = File.OpenWrite(@"temp_mods.ini");
+                    sftp.Connect();
+                    sftp.DownloadFile(@"/LOADER/mods.txt", vers);
+                    vers.Dispose();
+                    string lastModsUpdate = File.ReadAllText(@"temp_mods.ini");
+                    if (File.Exists(@"temp_mods.ini"))
+                    {
+                        updateDowloand.Text = lastModsUpdate;
+                        _anim.Hide(_updateLoading);
+                        _anim.Show(updateDowloand);
+                    }
+                    File.Delete(@"temp_mods.ini");
+                    sftp.Disconnect();
+                }
+                catch { return false; }
+            }
+            _anim.Show(updateDowloand);
+            return false;
+        }
+
+        public void DownloadAll() // скачивание
         {
             ss = new Thread(DownloadAll1);
             ss.Start();

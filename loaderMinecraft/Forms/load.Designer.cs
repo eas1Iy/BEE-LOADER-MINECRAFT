@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Guna.UI2.AnimatorNS.Animation animation1 = new Guna.UI2.AnimatorNS.Animation();
+            Guna.UI2.AnimatorNS.Animation animation12 = new Guna.UI2.AnimatorNS.Animation();
+            Guna.UI2.AnimatorNS.Animation animation11 = new Guna.UI2.AnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(load));
-            Guna.UI2.AnimatorNS.Animation animation2 = new Guna.UI2.AnimatorNS.Animation();
             this._welcomLbl = new System.Windows.Forms.Label();
             this.playButt = new Guna.UI2.WinForms.Guna2Button();
             this.changeExe = new Guna.UI2.WinForms.Guna2Button();
@@ -44,7 +44,6 @@
             this.resize = new Guna.UI2.WinForms.Guna2ResizeBox();
             this._closeButt = new Guna.UI2.WinForms.Guna2ControlBox();
             this._hideButt = new Guna.UI2.WinForms.Guna2ControlBox();
-            this._elipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.pathMods = new Guna.UI2.WinForms.Guna2TextBox();
             this.pathMinecraft = new Guna.UI2.WinForms.Guna2TextBox();
             this._animate = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
@@ -59,8 +58,12 @@
             this._logoGif = new System.Windows.Forms.PictureBox();
             this._anim = new Guna.UI2.WinForms.Guna2Transition();
             this._anim2 = new Guna.UI2.WinForms.Guna2Transition();
+            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._logoGif)).BeginInit();
+            this.guna2CustomGradientPanel1.SuspendLayout();
+            this.guna2CustomGradientPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // _welcomLbl
@@ -88,6 +91,7 @@
             this.playButt.CustomImages.Parent = this.playButt;
             this._anim2.SetDecoration(this.playButt, Guna.UI2.AnimatorNS.DecorationType.None);
             this._anim.SetDecoration(this.playButt, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.playButt.Enabled = false;
             this.playButt.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
             this.playButt.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.playButt.ForeColor = System.Drawing.Color.White;
@@ -118,7 +122,7 @@
             this.changeExe.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.changeExe.ForeColor = System.Drawing.Color.White;
             this.changeExe.HoverState.Parent = this.changeExe;
-            this.changeExe.Location = new System.Drawing.Point(367, 5);
+            this.changeExe.Location = new System.Drawing.Point(340, 5);
             this.changeExe.Name = "changeExe";
             this.changeExe.ShadowDecoration.Parent = this.changeExe;
             this.changeExe.Size = new System.Drawing.Size(76, 24);
@@ -165,7 +169,7 @@
             this.changeMods.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.changeMods.ForeColor = System.Drawing.Color.White;
             this.changeMods.HoverState.Parent = this.changeMods;
-            this.changeMods.Location = new System.Drawing.Point(367, 50);
+            this.changeMods.Location = new System.Drawing.Point(340, 50);
             this.changeMods.Name = "changeMods";
             this.changeMods.ShadowDecoration.Parent = this.changeMods;
             this.changeMods.Size = new System.Drawing.Size(76, 24);
@@ -184,6 +188,7 @@
             this.fixButt.CustomImages.Parent = this.fixButt;
             this._anim2.SetDecoration(this.fixButt, Guna.UI2.AnimatorNS.DecorationType.None);
             this._anim.SetDecoration(this.fixButt, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.fixButt.Enabled = false;
             this.fixButt.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
             this.fixButt.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.fixButt.ForeColor = System.Drawing.Color.White;
@@ -208,6 +213,7 @@
             this.delButt.CustomImages.Parent = this.delButt;
             this._anim2.SetDecoration(this.delButt, Guna.UI2.AnimatorNS.DecorationType.None);
             this._anim.SetDecoration(this.delButt, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.delButt.Enabled = false;
             this.delButt.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
             this.delButt.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.delButt.ForeColor = System.Drawing.Color.White;
@@ -229,7 +235,7 @@
             this._anim2.SetDecoration(this.resize, Guna.UI2.AnimatorNS.DecorationType.None);
             this._anim.SetDecoration(this.resize, Guna.UI2.AnimatorNS.DecorationType.None);
             this.resize.ForeColor = System.Drawing.Color.Empty;
-            this.resize.Location = new System.Drawing.Point(510, 232);
+            this.resize.Location = new System.Drawing.Point(503, 224);
             this.resize.Name = "resize";
             this.resize.Size = new System.Drawing.Size(20, 20);
             this.resize.TabIndex = 10;
@@ -245,7 +251,7 @@
             this._closeButt.FillColor = System.Drawing.Color.White;
             this._closeButt.HoverState.Parent = this._closeButt;
             this._closeButt.IconColor = System.Drawing.Color.Black;
-            this._closeButt.Location = new System.Drawing.Point(500, 2);
+            this._closeButt.Location = new System.Drawing.Point(491, 4);
             this._closeButt.Name = "_closeButt";
             this._closeButt.ShadowDecoration.Parent = this._closeButt;
             this._closeButt.Size = new System.Drawing.Size(30, 19);
@@ -262,16 +268,12 @@
             this._hideButt.FillColor = System.Drawing.Color.White;
             this._hideButt.HoverState.Parent = this._hideButt;
             this._hideButt.IconColor = System.Drawing.Color.Black;
-            this._hideButt.Location = new System.Drawing.Point(464, 2);
+            this._hideButt.Location = new System.Drawing.Point(455, 4);
             this._hideButt.Name = "_hideButt";
             this._hideButt.ShadowDecoration.Parent = this._hideButt;
             this._hideButt.Size = new System.Drawing.Size(30, 19);
             this._hideButt.TabIndex = 12;
             this._hideButt.Visible = false;
-            // 
-            // _elipse
-            // 
-            this._elipse.TargetControl = this;
             // 
             // pathMods
             // 
@@ -279,7 +281,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pathMods.BackColor = System.Drawing.Color.White;
             this.pathMods.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(162)))), ((int)(((byte)(44)))));
-            this.pathMods.BorderRadius = 8;
+            this.pathMods.BorderRadius = 11;
             this.pathMods.Cursor = System.Windows.Forms.Cursors.IBeam;
             this._anim2.SetDecoration(this.pathMods, Guna.UI2.AnimatorNS.DecorationType.None);
             this._anim.SetDecoration(this.pathMods, Guna.UI2.AnimatorNS.DecorationType.None);
@@ -305,7 +307,7 @@
             this.pathMods.PlaceholderText = "";
             this.pathMods.SelectedText = "";
             this.pathMods.ShadowDecoration.Parent = this.pathMods;
-            this.pathMods.Size = new System.Drawing.Size(193, 24);
+            this.pathMods.Size = new System.Drawing.Size(166, 24);
             this.pathMods.TabIndex = 13;
             this.pathMods.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -343,7 +345,7 @@
             this.pathMinecraft.PlaceholderText = "";
             this.pathMinecraft.SelectedText = "";
             this.pathMinecraft.ShadowDecoration.Parent = this.pathMinecraft;
-            this.pathMinecraft.Size = new System.Drawing.Size(193, 24);
+            this.pathMinecraft.Size = new System.Drawing.Size(166, 24);
             this.pathMinecraft.TabIndex = 14;
             this.pathMinecraft.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -389,10 +391,10 @@
             this.guna2GradientPanel1.Controls.Add(this.changeExe);
             this._anim2.SetDecoration(this.guna2GradientPanel1, Guna.UI2.AnimatorNS.DecorationType.None);
             this._anim.SetDecoration(this.guna2GradientPanel1, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.guna2GradientPanel1.Location = new System.Drawing.Point(-3, 52);
+            this.guna2GradientPanel1.Location = new System.Drawing.Point(9, 52);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
             this.guna2GradientPanel1.ShadowDecoration.Parent = this.guna2GradientPanel1;
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(542, 79);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(515, 79);
             this.guna2GradientPanel1.TabIndex = 17;
             this.guna2GradientPanel1.Visible = false;
             // 
@@ -412,7 +414,7 @@
             this.editPathMods.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.editPathMods.ForeColor = System.Drawing.Color.White;
             this.editPathMods.HoverState.Parent = this.editPathMods;
-            this.editPathMods.Location = new System.Drawing.Point(448, 49);
+            this.editPathMods.Location = new System.Drawing.Point(421, 49);
             this.editPathMods.Name = "editPathMods";
             this.editPathMods.ShadowDecoration.Parent = this.editPathMods;
             this.editPathMods.Size = new System.Drawing.Size(85, 24);
@@ -437,7 +439,7 @@
             this.editPathMinecraft.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.editPathMinecraft.ForeColor = System.Drawing.Color.White;
             this.editPathMinecraft.HoverState.Parent = this.editPathMinecraft;
-            this.editPathMinecraft.Location = new System.Drawing.Point(448, 4);
+            this.editPathMinecraft.Location = new System.Drawing.Point(421, 4);
             this.editPathMinecraft.Name = "editPathMinecraft";
             this.editPathMinecraft.ShadowDecoration.Parent = this.editPathMinecraft;
             this.editPathMinecraft.Size = new System.Drawing.Size(85, 24);
@@ -448,9 +450,7 @@
             // 
             // seprator
             // 
-            this.seprator.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.seprator.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this._anim2.SetDecoration(this.seprator, Guna.UI2.AnimatorNS.DecorationType.None);
             this._anim.SetDecoration(this.seprator, Guna.UI2.AnimatorNS.DecorationType.None);
             this.seprator.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
@@ -467,7 +467,7 @@
             // 
             // _dragControl1
             // 
-            this._dragControl1.TargetControl = this;
+            this._dragControl1.TargetControl = this.guna2CustomGradientPanel2;
             this._dragControl1.UseTransparentDrag = true;
             // 
             // tooltip
@@ -486,7 +486,7 @@
             this._logoGif.Cursor = System.Windows.Forms.Cursors.Hand;
             this._anim.SetDecoration(this._logoGif, Guna.UI2.AnimatorNS.DecorationType.None);
             this._anim2.SetDecoration(this._logoGif, Guna.UI2.AnimatorNS.DecorationType.None);
-            this._logoGif.Image = global::BEE.Properties.Resources.tenor;
+            this._logoGif.Image = global::BEE.Properties.Resources.bee_animator;
             this._logoGif.Location = new System.Drawing.Point(411, 192);
             this._logoGif.Name = "_logoGif";
             this._logoGif.Size = new System.Drawing.Size(50, 50);
@@ -501,45 +501,81 @@
             // 
             this._anim.AnimationType = Guna.UI2.AnimatorNS.AnimationType.Transparent;
             this._anim.Cursor = null;
-            animation1.AnimateOnlyDifferences = false;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 1F;
-            this._anim.DefaultAnimation = animation1;
+            animation12.AnimateOnlyDifferences = false;
+            animation12.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation12.BlindCoeff")));
+            animation12.LeafCoeff = 0F;
+            animation12.MaxTime = 1F;
+            animation12.MinTime = 0F;
+            animation12.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation12.MosaicCoeff")));
+            animation12.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation12.MosaicShift")));
+            animation12.MosaicSize = 0;
+            animation12.Padding = new System.Windows.Forms.Padding(0);
+            animation12.RotateCoeff = 0F;
+            animation12.RotateLimit = 0F;
+            animation12.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation12.ScaleCoeff")));
+            animation12.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation12.SlideCoeff")));
+            animation12.TimeCoeff = 0F;
+            animation12.TransparencyCoeff = 1F;
+            this._anim.DefaultAnimation = animation12;
             this._anim.Interval = 15;
             // 
             // _anim2
             // 
             this._anim2.AnimationType = Guna.UI2.AnimatorNS.AnimationType.HorizBlind;
             this._anim2.Cursor = null;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 0;
-            animation2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 0F;
-            animation2.TransparencyCoeff = 0F;
-            this._anim2.DefaultAnimation = animation2;
+            animation11.AnimateOnlyDifferences = true;
+            animation11.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation11.BlindCoeff")));
+            animation11.LeafCoeff = 0F;
+            animation11.MaxTime = 1F;
+            animation11.MinTime = 0F;
+            animation11.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation11.MosaicCoeff")));
+            animation11.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation11.MosaicShift")));
+            animation11.MosaicSize = 0;
+            animation11.Padding = new System.Windows.Forms.Padding(0);
+            animation11.RotateCoeff = 0F;
+            animation11.RotateLimit = 0F;
+            animation11.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation11.ScaleCoeff")));
+            animation11.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation11.SlideCoeff")));
+            animation11.TimeCoeff = 0F;
+            animation11.TransparencyCoeff = 0F;
+            this._anim2.DefaultAnimation = animation11;
             this._anim2.Interval = 15;
+            // 
+            // guna2CustomGradientPanel1
+            // 
+            this.guna2CustomGradientPanel1.Controls.Add(this.guna2CustomGradientPanel2);
+            this._anim2.SetDecoration(this.guna2CustomGradientPanel1, Guna.UI2.AnimatorNS.DecorationType.None);
+            this._anim.SetDecoration(this.guna2CustomGradientPanel1, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.guna2CustomGradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2CustomGradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
+            this.guna2CustomGradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(168)))), ((int)(((byte)(50)))));
+            this.guna2CustomGradientPanel1.FillColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
+            this.guna2CustomGradientPanel1.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(168)))), ((int)(((byte)(50)))));
+            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
+            this.guna2CustomGradientPanel1.Padding = new System.Windows.Forms.Padding(3);
+            this.guna2CustomGradientPanel1.ShadowDecoration.Parent = this.guna2CustomGradientPanel1;
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(533, 254);
+            this.guna2CustomGradientPanel1.TabIndex = 19;
+            // 
+            // guna2CustomGradientPanel2
+            // 
+            this.guna2CustomGradientPanel2.Controls.Add(this.resize);
+            this.guna2CustomGradientPanel2.Controls.Add(this._hideButt);
+            this.guna2CustomGradientPanel2.Controls.Add(this._closeButt);
+            this._anim2.SetDecoration(this.guna2CustomGradientPanel2, Guna.UI2.AnimatorNS.DecorationType.None);
+            this._anim.SetDecoration(this.guna2CustomGradientPanel2, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.guna2CustomGradientPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2CustomGradientPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.guna2CustomGradientPanel2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.guna2CustomGradientPanel2.FillColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.guna2CustomGradientPanel2.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(3, 3);
+            this.guna2CustomGradientPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
+            this.guna2CustomGradientPanel2.ShadowDecoration.Parent = this.guna2CustomGradientPanel2;
+            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(527, 248);
+            this.guna2CustomGradientPanel2.TabIndex = 20;
             // 
             // load
             // 
@@ -547,17 +583,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(533, 254);
-            this.Controls.Add(this.seprator);
             this.Controls.Add(this.guna2GradientPanel1);
+            this.Controls.Add(this.seprator);
             this.Controls.Add(this._helpButt);
             this.Controls.Add(this._logoGif);
-            this.Controls.Add(this._hideButt);
-            this.Controls.Add(this._closeButt);
-            this.Controls.Add(this.resize);
             this.Controls.Add(this.delButt);
             this.Controls.Add(this.fixButt);
             this.Controls.Add(this.playButt);
             this.Controls.Add(this._welcomLbl);
+            this.Controls.Add(this.guna2CustomGradientPanel1);
             this._anim2.SetDecoration(this, Guna.UI2.AnimatorNS.DecorationType.None);
             this._anim.SetDecoration(this, Guna.UI2.AnimatorNS.DecorationType.None);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -565,11 +599,14 @@
             this.MinimumSize = new System.Drawing.Size(480, 204);
             this.Name = "load";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "СП405 - Меню.";
+            this.Text = "BEE - Меню.";
+            this.TransparencyKey = System.Drawing.Color.Green;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.load_FormClosing);
             this.Load += new System.EventHandler(this.load_Load);
             this.guna2GradientPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._logoGif)).EndInit();
+            this.guna2CustomGradientPanel1.ResumeLayout(false);
+            this.guna2CustomGradientPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -589,7 +626,6 @@
         private Guna.UI2.WinForms.Guna2ResizeBox resize;
         private Guna.UI2.WinForms.Guna2ControlBox _closeButt;
         private Guna.UI2.WinForms.Guna2ControlBox _hideButt;
-        private Guna.UI2.WinForms.Guna2Elipse _elipse;
         private Guna.UI2.WinForms.Guna2TextBox pathMods;
         private Guna.UI2.WinForms.Guna2TextBox pathMinecraft;
         private Guna.UI2.WinForms.Guna2AnimateWindow _animate;
@@ -604,5 +640,7 @@
         private Guna.UI2.WinForms.Guna2HtmlToolTip tooltip;
         private Guna.UI2.WinForms.Guna2Transition _anim;
         private Guna.UI2.WinForms.Guna2Transition _anim2;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel2;
     }
 }

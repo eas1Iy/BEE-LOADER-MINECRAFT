@@ -13,11 +13,11 @@ namespace loaderMinecraft
         public LoaderLoading()
         {
             InitializeComponent();
-            _animate.SetAnimateWindow(this);
-            _shadow.SetShadowForm(this);
         }
 
-        public bool inet()
+        public string lastUpdate;
+
+        bool inet()
         {
             if (Internet.CheckConnection())
                 return true;
@@ -37,14 +37,15 @@ namespace loaderMinecraft
                         sftp.Connect();
                         sftp.DownloadFile(@"/LOADER/update.txt", vers);
                         vers.Dispose();
-                        string updateList = File.ReadAllText(@"temp_update.ini");
+                        lastUpdate = File.ReadAllText(@"temp_update.ini");
                         if (File.Exists(@"temp_update.ini"))
                         {
-                            update.Text = updateList;
+                            update.Text = lastUpdate;
                             _anim.Hide(_updateLoading);
                             _anim.Show(update);
                         }
                         File.Delete(@"temp_update.ini");
+                        sftp.Disconnect();
                     }
                     catch { }
                 }
@@ -74,7 +75,6 @@ namespace loaderMinecraft
 
                         Thread.Sleep(500);
 
-
                         if (Application.ProductVersion.ToString() == actualVers) // Сверяем версии. Тут нужно учесть, что идет проверка string не int значений, поэтому если будет отличие в точке, версия будет другой
                         {
                             File.Delete(@"temp_version.ini");
@@ -96,7 +96,9 @@ namespace loaderMinecraft
                                 pc.StartInfo.CreateNoWindow = true;
                                 pc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
 
-                                pc.StartInfo.Arguments = "/c @ECHO OFF && ping -n 3 127.0.0.1 && start " + Application.ProductName + "(" + actualVers + ")" + @".exe && del "+Application.ProductName+"("+Application.ProductVersion+")"+@".exe  / f / q ";
+                                Process.Start(Application.ProductName + "(" + actualVers + ")" + @".exe");
+                                pc.StartInfo.Arguments = " / c @ECHO OFF && ping -n 3 127.0.0.1 && del "+Application.ProductName+"("+Application.ProductVersion+")"+@".exe  / f / q ";
+                                //pc.StartInfo.Arguments = " / c @ECHO OFF && ping -n 3 127.0.0.1 && start " + Application.ProductName + "(" + actualVers + ")" + @".exe && del " + Application.ProductName + "(" + Application.ProductVersion + ")" + @".exe  / f / q ";
 
                                 pc.Start();
 
@@ -133,8 +135,8 @@ namespace loaderMinecraft
                 if (await Task.Run(() => updates()) == true)
                 {
                     load lzd = new load();
-                    this.Hide();
                     lzd.Show();
+                    this.Hide();
                 }
                 else
                 {

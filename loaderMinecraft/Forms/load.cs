@@ -1,4 +1,5 @@
 ﻿using BEE.Properties;
+using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -11,32 +12,46 @@ namespace loaderMinecraft
         public load()
         {
             InitializeComponent();
-            _animate.SetAnimateWindow(this);
         }
 
         string pathLauncher = Settings.Default["pathLauncher"].ToString();
         string pathMod = Settings.Default["pathMods"].ToString();
+        string appdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
         void load_Load(object sender, EventArgs e)
         {
             _welcomLbl.Text += Application.ProductVersion;
-            loading();
             if (loading() != true)
             {
                 MessageBox.Show("Неуспешный запуск программы, перезапуск.", "Неизвестная ошибка", MessageBoxButtons.OK);
                 Application.Restart(); 
             }
+            check();
+        }
 
+        public bool inet()
+        {
+            if (Internet.CheckConnection())
+                return true;
+            else
+                return false;
+        }
+
+        void check()
+        {
             if (pathLauncher.Length != 0 && pathMod.Length != 0)
             {
                 pathMinecraft.Text = pathLauncher;
                 pathMods.Text = pathMod;
+                buttons(true);
             }
-            if (pathMod.Length == 0)
-            {
-                delButt.Enabled = false;
-                fixButt.Enabled = false;
-            }
+        }
+
+        void buttons(bool stat)
+        {
+            playButt.Enabled = stat;
+            delButt.Enabled = stat;
+            fixButt.Enabled = stat;
         }
 
         bool loading()
@@ -58,6 +73,9 @@ namespace loaderMinecraft
         void changeExe_Click(object sender, EventArgs e)
         {
             OpenFileDialog exe = new OpenFileDialog();
+
+            exe.InitialDirectory = appdata;
+
             exe.Filter = "Лаунчер майнкрафта|*.exe";
             if (exe.ShowDialog() == DialogResult.OK)
             {
@@ -65,47 +83,50 @@ namespace loaderMinecraft
                 pathMinecraft.Text = exe.FileName;
                 Settings.Default["pathLauncher"] = exe.FileName;
                 Settings.Default.Save();
+
+                if (pathMinecraft.Text.Length > 5 && pathMods.Text.Length > 5)
+                    buttons(true);
             }
         }
 
         void changeMods_Click(object sender, EventArgs e)
         {
+            CommonOpenFileDialog path = new CommonOpenFileDialog();
 
+            path.InitialDirectory = appdata;
+            path.IsFolderPicker = true;
 
-            FolderBrowserDialog path = new FolderBrowserDialog();
-            if (path.ShowDialog() == DialogResult.OK)
+            CommonFileDialogResult fRes = path.ShowDialog();
+            if (fRes == CommonFileDialogResult.Ok)
             {
-                pathMod = path.SelectedPath;
-                pathMods.Text = path.SelectedPath;
-                Settings.Default["pathMods"] = path.SelectedPath;
+                pathMod = path.FileName;
+                pathMods.Text = path.FileName;
+                Settings.Default["pathMods"] = path.FileName;
                 Settings.Default.Save();
-            }
-        }
 
-        void проверкаМодов()
-        {
-            DirectoryInfo dir = new DirectoryInfo(pathMods.Text);
-            foreach (var item in dir.GetFiles())
-            {
-                MessageBox.Show(item.Name);
+                if (pathMinecraft.Text.Length > 5 && pathMods.Text.Length > 5)
+                    buttons(true);
             }
         }
 
         void playButt_Click(object sender, EventArgs e)
         {
-            if (pathMinecraft.Text != "" && pathMods.Text != "" && pathMinecraft.Text.Length > 10 && pathMods.Text.IndexOf(@"\mods") > -1)
-                try
-                {
-                    dowloand dw = new dowloand();
-                    dw.Show();
-                    dw.fix = false;
-                    this.Hide();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString(), "Ошибка запуска.", MessageBoxButtons.OK);
-                }
-            else MessageBox.Show("Заполните поля:\n\n Путь к майнкрафту\n Путь к папке с модами", "Ошибка", MessageBoxButtons.OK);
+            if (inet() == true)
+            {
+                if (pathMinecraft.Text != "" && pathMods.Text != "" && pathMinecraft.Text.Length > 10 && pathMods.Text.IndexOf(@"\mods") > -1)
+                    try
+                    {
+                        dowloand dw = new dowloand();
+                        dw.Show();
+                        dw.fix = false;
+                        this.Hide();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), "Ошибка запуска.", MessageBoxButtons.OK);
+                    }
+                else MessageBox.Show("Заполните поля:\n\n Путь к майнкрафту\n Путь к папке с модами", "Ошибка", MessageBoxButtons.OK);
+            }
         }
 
         void delButt_Click(object sender, EventArgs e)
@@ -131,16 +152,20 @@ namespace loaderMinecraft
 
         void fixButt_Click(object sender, EventArgs e)
         {
-            try
+            if (inet() == true)
             {
-                dowloand dw = new dowloand();
-                dw.Show();
-                dw.fix = true;
-                this.Hide();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Ошибка проверки.", MessageBoxButtons.OK);
+                try
+                {
+                    dowloand dw = new dowloand();
+                    MessageBox.Show("");
+                    dw.Show();
+                    dw.fix = true;
+                    this.Hide();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString(), "Ошибка проверки.", MessageBoxButtons.OK);
+                }
             }
         }
 
@@ -183,6 +208,9 @@ namespace loaderMinecraft
 
                 Settings.Default["pathLauncher"] = pathMinecraft.Text;
                 Settings.Default.Save();
+
+                if (pathMinecraft.Text.Length > 5 && pathMods.Text.Length > 5)
+                    buttons(true);
             }
         }
 
@@ -200,6 +228,9 @@ namespace loaderMinecraft
 
                 Settings.Default["pathMods"] = pathMods.Text;
                 Settings.Default.Save();
+
+                if (pathMinecraft.Text.Length > 5 && pathMods.Text.Length > 5)
+                    buttons(true);
             }
         }
     }
