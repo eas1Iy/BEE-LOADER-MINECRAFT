@@ -90,6 +90,7 @@
     <Compile Include="Forms\LoaderLoading.Designer.cs">
       <DependentUpon>LoaderLoading.cs</DependentUpon>
     </Compile>
+    <Compile Include="Others\MineStat.cs" />
     <Compile Include="Others\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\load.resx">

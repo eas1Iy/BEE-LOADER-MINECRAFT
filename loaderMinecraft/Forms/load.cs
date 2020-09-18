@@ -27,6 +27,30 @@ namespace loaderMinecraft
                 Application.Restart(); 
             }
             check();
+            serverCheck();
+        }
+
+        bool serverCheck()
+        {
+            MineStat ms = new MineStat("s24.joinserver.ru", 25750);
+            if (ms.IsServerUp())
+            {
+                string maxOnline = ms.GetMaximumPlayers();
+                string online = ms.GetCurrentPlayers();
+                long ping = ms.GetLatency();
+                string motd = ms.GetMotd();
+                statusLbl.Text = "Работает";
+                onlineLbl.Text = online + "/" + maxOnline;
+                tooltip.SetToolTip(onlineLbl, "Ваш пинг: " + ping.ToString());
+                tooltip.SetToolTip(statusLbl, "MOTD Сервера: " + motd);
+                return true;
+            }
+            else
+            {
+                statusLbl.Text = "Выключен";
+                onlineLbl.Text = "-/10";
+                return false;
+            }
         }
 
         public bool inet()
@@ -65,7 +89,6 @@ namespace loaderMinecraft
             _anim.Show(delButt);
             _anim.Show(fixButt);
             _anim.Show(_helpButt);
-            _anim.Show(_logoGif);
             _anim.Show(resize);
             return true;
         }
@@ -111,22 +134,33 @@ namespace loaderMinecraft
 
         void playButt_Click(object sender, EventArgs e)
         {
-            if (inet() == true)
+            if (serverCheck() == true)
             {
-                if (pathMinecraft.Text != "" && pathMods.Text != "" && pathMinecraft.Text.Length > 10 && pathMods.Text.IndexOf(@"\mods") > -1)
-                    try
-                    {
-                        dowloand dw = new dowloand();
-                        dw.Show();
-                        dw.fix = false;
-                        this.Hide();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.ToString(), "Ошибка запуска.", MessageBoxButtons.OK);
-                    }
-                else MessageBox.Show("Заполните поля:\n\n Путь к майнкрафту\n Путь к папке с модами", "Ошибка", MessageBoxButtons.OK);
+                if (inet() == true)
+                {
+                    if (MessageBox.Show("Скопировать IP сервера в буфер обмена?", "Вопросик на засыпку.", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        Clipboard.SetText("s24.joinserver.ru:25750");
+                    if (pathMinecraft.Text != "" && pathMods.Text != "" && pathMinecraft.Text.Length > 10 && pathMods.Text.IndexOf(@"\mods") > -1)
+                        try
+                        {
+                            dowloand dw = new dowloand();
+                            dw.Show();
+                            dw.fix = false;
+                            this.Hide();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.ToString(), "Ошибка запуска.", MessageBoxButtons.OK);
+                        }
+                    else MessageBox.Show("Заполните поля:\n\n Путь к майнкрафту\n Путь к папке с модами", "Ошибка", MessageBoxButtons.OK);
+                }
             }
+            else
+            {
+                MessageBox.Show("Сервер в данный момент не работает, вход невозможен!", "Ошибка соединения с сервером.", MessageBoxButtons.OK);
+                Application.Exit();
+            }
+
         }
 
         void delButt_Click(object sender, EventArgs e)
@@ -157,7 +191,6 @@ namespace loaderMinecraft
                 try
                 {
                     dowloand dw = new dowloand();
-                    MessageBox.Show("");
                     dw.Show();
                     dw.fix = true;
                     this.Hide();
@@ -232,6 +265,16 @@ namespace loaderMinecraft
                 if (pathMinecraft.Text.Length > 5 && pathMods.Text.Length > 5)
                     buttons(true);
             }
+        }
+
+        void timer1_Tick(object sender, EventArgs e)
+        {
+            serverCheck();
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            serverCheck();
         }
     }
 }

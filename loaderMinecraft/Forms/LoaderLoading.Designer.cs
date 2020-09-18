@@ -29,19 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Guna.UI.Animation.Animation animation6 = new Guna.UI.Animation.Animation();
+            Guna.UI.Animation.Animation animation8 = new Guna.UI.Animation.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoaderLoading));
             this._animate = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this._drag = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.update = new System.Windows.Forms.Label();
             this.gunaVSeparator1 = new Guna.UI.WinForms.GunaVSeparator();
             this._anim = new Guna.UI.WinForms.GunaTransition(this.components);
             this._updateLoading = new Guna.UI2.WinForms.Guna2WinProgressIndicator();
+            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this._drag2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this._drag3 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.guna2CustomGradientPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -53,6 +54,23 @@
             // _drag
             // 
             this._drag.TargetControl = this.guna2CustomGradientPanel2;
+            // 
+            // guna2CustomGradientPanel2
+            // 
+            this.guna2CustomGradientPanel2.Controls.Add(this._updateLoading);
+            this.guna2CustomGradientPanel2.Controls.Add(this.update);
+            this._anim.SetDecoration(this.guna2CustomGradientPanel2, Guna.UI.Animation.DecorationType.None);
+            this.guna2CustomGradientPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2CustomGradientPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.guna2CustomGradientPanel2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.guna2CustomGradientPanel2.FillColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.guna2CustomGradientPanel2.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(3, 3);
+            this.guna2CustomGradientPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
+            this.guna2CustomGradientPanel2.ShadowDecoration.Parent = this.guna2CustomGradientPanel2;
+            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(527, 248);
+            this.guna2CustomGradientPanel2.TabIndex = 20;
             // 
             // pictureBox1
             // 
@@ -69,11 +87,11 @@
             // update
             // 
             this._anim.SetDecoration(this.update, Guna.UI.Animation.DecorationType.None);
-            this.update.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.update.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
-            this.update.Location = new System.Drawing.Point(249, 9);
+            this.update.Font = new System.Drawing.Font("Malgun Gothic", 10F);
+            this.update.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.update.Location = new System.Drawing.Point(246, 24);
             this.update.Name = "update";
-            this.update.Size = new System.Drawing.Size(270, 236);
+            this.update.Size = new System.Drawing.Size(270, 200);
             this.update.TabIndex = 1;
             this.update.Text = "update";
             this.update.Visible = false;
@@ -83,7 +101,7 @@
             this.gunaVSeparator1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this._anim.SetDecoration(this.gunaVSeparator1, Guna.UI.Animation.DecorationType.None);
             this.gunaVSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
-            this.gunaVSeparator1.Location = new System.Drawing.Point(233, 33);
+            this.gunaVSeparator1.Location = new System.Drawing.Point(233, 27);
             this.gunaVSeparator1.Name = "gunaVSeparator1";
             this.gunaVSeparator1.Size = new System.Drawing.Size(10, 200);
             this.gunaVSeparator1.TabIndex = 2;
@@ -92,22 +110,22 @@
             // 
             this._anim.AnimationType = Guna.UI.Animation.AnimationType.Transparent;
             this._anim.Cursor = null;
-            animation6.AnimateOnlyDifferences = true;
-            animation6.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.BlindCoeff")));
-            animation6.LeafCoeff = 0F;
-            animation6.MaxTime = 1F;
-            animation6.MinTime = 0F;
-            animation6.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.MosaicCoeff")));
-            animation6.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation6.MosaicShift")));
-            animation6.MosaicSize = 0;
-            animation6.Padding = new System.Windows.Forms.Padding(0);
-            animation6.RotateCoeff = 0F;
-            animation6.RotateLimit = 0F;
-            animation6.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.ScaleCoeff")));
-            animation6.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.SlideCoeff")));
-            animation6.TimeCoeff = 0F;
-            animation6.TransparencyCoeff = 1F;
-            this._anim.DefaultAnimation = animation6;
+            animation8.AnimateOnlyDifferences = true;
+            animation8.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation8.BlindCoeff")));
+            animation8.LeafCoeff = 0F;
+            animation8.MaxTime = 1F;
+            animation8.MinTime = 0F;
+            animation8.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation8.MosaicCoeff")));
+            animation8.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation8.MosaicShift")));
+            animation8.MosaicSize = 0;
+            animation8.Padding = new System.Windows.Forms.Padding(0);
+            animation8.RotateCoeff = 0F;
+            animation8.RotateLimit = 0F;
+            animation8.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation8.ScaleCoeff")));
+            animation8.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation8.SlideCoeff")));
+            animation8.TimeCoeff = 0F;
+            animation8.TransparencyCoeff = 1F;
+            this._anim.DefaultAnimation = animation8;
             // 
             // _updateLoading
             // 
@@ -115,19 +133,11 @@
             this._updateLoading.AutoStart = true;
             this._updateLoading.CircleSize = 1F;
             this._anim.SetDecoration(this._updateLoading, Guna.UI.Animation.DecorationType.None);
-            this._updateLoading.Location = new System.Drawing.Point(350, 86);
+            this._updateLoading.Location = new System.Drawing.Point(340, 80);
             this._updateLoading.Name = "_updateLoading";
             this._updateLoading.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
             this._updateLoading.Size = new System.Drawing.Size(75, 75);
             this._updateLoading.TabIndex = 3;
-            // 
-            // _drag2
-            // 
-            this._drag2.TargetControl = this.update;
-            // 
-            // _drag3
-            // 
-            this._drag3.TargetControl = this.pictureBox1;
             // 
             // guna2CustomGradientPanel1
             // 
@@ -145,20 +155,13 @@
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(533, 254);
             this.guna2CustomGradientPanel1.TabIndex = 20;
             // 
-            // guna2CustomGradientPanel2
+            // _drag2
             // 
-            this._anim.SetDecoration(this.guna2CustomGradientPanel2, Guna.UI.Animation.DecorationType.None);
-            this.guna2CustomGradientPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2CustomGradientPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.guna2CustomGradientPanel2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.guna2CustomGradientPanel2.FillColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.guna2CustomGradientPanel2.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(3, 3);
-            this.guna2CustomGradientPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
-            this.guna2CustomGradientPanel2.ShadowDecoration.Parent = this.guna2CustomGradientPanel2;
-            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(527, 248);
-            this.guna2CustomGradientPanel2.TabIndex = 20;
+            this._drag2.TargetControl = this.update;
+            // 
+            // _drag3
+            // 
+            this._drag3.TargetControl = this.pictureBox1;
             // 
             // LoaderLoading
             // 
@@ -166,8 +169,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(533, 254);
-            this.Controls.Add(this._updateLoading);
-            this.Controls.Add(this.update);
             this.Controls.Add(this.gunaVSeparator1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.guna2CustomGradientPanel1);
@@ -178,6 +179,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BEE - Загрузка программы..";
             this.Load += new System.EventHandler(this.LoaderLoading_Load);
+            this.guna2CustomGradientPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.guna2CustomGradientPanel1.ResumeLayout(false);
             this.ResumeLayout(false);

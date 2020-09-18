@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Guna.UI2.AnimatorNS.Animation animation1 = new Guna.UI2.AnimatorNS.Animation();
+            Guna.UI2.AnimatorNS.Animation animation4 = new Guna.UI2.AnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(dowloand));
             this._labelLoading = new System.Windows.Forms.Label();
             this._dragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
@@ -54,8 +54,8 @@
             // 
             this._labelLoading.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this._anim.SetDecoration(this._labelLoading, Guna.UI2.AnimatorNS.DecorationType.None);
-            this._labelLoading.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Bold);
-            this._labelLoading.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
+            this._labelLoading.Font = new System.Drawing.Font("Malgun Gothic", 15F);
+            this._labelLoading.ForeColor = System.Drawing.SystemColors.ControlText;
             this._labelLoading.Location = new System.Drawing.Point(12, 141);
             this._labelLoading.Name = "_labelLoading";
             this._labelLoading.Size = new System.Drawing.Size(189, 29);
@@ -109,8 +109,8 @@
             this.updateDowloand.AutoEllipsis = true;
             this._anim.SetDecoration(this.updateDowloand, Guna.UI2.AnimatorNS.DecorationType.None);
             this.updateDowloand.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.updateDowloand.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.updateDowloand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
+            this.updateDowloand.Font = new System.Drawing.Font("Malgun Gothic", 10F);
+            this.updateDowloand.ForeColor = System.Drawing.SystemColors.ControlText;
             this.updateDowloand.Location = new System.Drawing.Point(0, 0);
             this.updateDowloand.Name = "updateDowloand";
             this.updateDowloand.Size = new System.Drawing.Size(395, 155);
@@ -162,22 +162,22 @@
             // 
             this._anim.AnimationType = Guna.UI2.AnimatorNS.AnimationType.Transparent;
             this._anim.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 1F;
-            this._anim.DefaultAnimation = animation1;
+            animation4.AnimateOnlyDifferences = true;
+            animation4.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.BlindCoeff")));
+            animation4.LeafCoeff = 0F;
+            animation4.MaxTime = 1F;
+            animation4.MinTime = 0F;
+            animation4.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicCoeff")));
+            animation4.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicShift")));
+            animation4.MosaicSize = 0;
+            animation4.Padding = new System.Windows.Forms.Padding(0);
+            animation4.RotateCoeff = 0F;
+            animation4.RotateLimit = 0F;
+            animation4.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.ScaleCoeff")));
+            animation4.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.SlideCoeff")));
+            animation4.TimeCoeff = 0F;
+            animation4.TransparencyCoeff = 1F;
+            this._anim.DefaultAnimation = animation4;
             // 
             // guna2CustomGradientPanel1
             // 

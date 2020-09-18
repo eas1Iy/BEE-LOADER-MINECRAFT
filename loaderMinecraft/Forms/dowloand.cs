@@ -27,8 +27,8 @@ namespace loaderMinecraft
 
         async void dowloand_Load(object sender, EventArgs e)
         {
-            if (await Task.Run(() => show()) == true)
-                 await Task.Run(() => DownloadAll());
+            await Task.Run(() => show());
+            await Task.Run(() => DownloadAll());
         }
 
         bool show()  // Загрузка списка обновленных модов
@@ -143,6 +143,7 @@ namespace loaderMinecraft
         }
         public void startMinecraft()
         {
+            
             Process.Start(gamePath);
             //Process.Start(@"C:\Program Files\Java\jre1.8.0_261\bin\java.exe - Xmx1G - Djava.library.path = C:\Users\eas1ly\AppData\Roaming\.minecraft\versions\Forge 1.12.2\natives\ -cp C:\Users\eas1ly\AppData\Roaming\.minecraft\versions\Forge 1.12.2\Forge 1.12.2.jar; --assetIndex 1.8 --uuid 1a2b3c4d5e6f7g8h9i0g --accessToken 1a2b3c4d5e6f7g8h9i0g --userProperties {" + "twitch_access_token"+ ":[" + "1a2b3c4d5e6f7g8h9i0g" + "]} --userType mojang --server s24.joinserver.ru --port 25750 --height 480--width 854");
         }
