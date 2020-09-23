@@ -1,6 +1,7 @@
 ﻿using BEE.Properties;
 using Guna.UI.Lib.ScrollBar;
 using Renci.SshNet;
+using Renci.SshNet.Sftp;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -21,6 +22,12 @@ namespace loaderMinecraft
 
         string gamePath = Settings.Default["pathLauncher"].ToString();
         public string pathMod = "";
+
+        public string hostName = "s24.joinserver.ru";
+        public int port = 2022;
+        public string username = "y5bq0wrk.b11838bf";
+        public string password = "brN-eNb-eKq-B7y";
+
         List<string> serverMods;
         public bool fix;
         Thread ss;
@@ -36,8 +43,9 @@ namespace loaderMinecraft
             _anim.Show(_loadingMods);
             _anim.Show(_labelLoading);
             _anim.Show(gunaVSeparator1);
+            _anim.Show(progress);
 
-            using (var sftp = new SftpClient("s24.joinserver.ru", 2022, "y5bq0wrk.b11838bf", "brN-eNb-eKq-B7y"))
+            using (var sftp = new SftpClient(hostName, port, username, password))
             {
                 try
                 {
@@ -71,14 +79,16 @@ namespace loaderMinecraft
         public async void DownloadAll1() // способ №1 - ошибка с паролем.
         {
             string remoteDirectory = "/user_mods/";
+            string remoteDirectoryConfig = "/user_configs/";
             string localDirectory = Convert.ToString(Settings.Default["pathMods"] + @"\");
+            string localDirectoryConfig = localDirectory.Replace("mods", "config");
 
             //
             serverMods = new List<string>();
             try
             {
                 //Моды с фтп
-                using (var sftp = new SftpClient("s24.joinserver.ru", 2022, "y5bq0wrk.b11838bf", "brN-eNb-eKq-B7y"))
+                using (var sftp = new SftpClient(hostName, port, username, password))
                 {
                     sftp.Connect();
                     var files = sftp.ListDirectory(remoteDirectory);
@@ -100,7 +110,7 @@ namespace loaderMinecraft
                     }
                 }
                 // скачивание нового
-                using (var sftp = new SftpClient("s24.joinserver.ru", 2022, "y5bq0wrk.b11838bf", "brN-eNb-eKq-B7y"))
+                using (var sftp = new SftpClient(hostName, port, username, password))
                 {
                     sftp.Connect();
 
@@ -116,11 +126,13 @@ namespace loaderMinecraft
                         {
                             using (Stream file1 = File.OpenWrite(localDirectory + s))
                             {
-
-                                sftp.DownloadFile(remoteDirectory + s, file1);
+                                SftpFileAttributes attributes = sftp.GetAttributes(remoteDirectory + s);
+                                progress.Invoke((MethodInvoker)delegate { progress.Maximum = (int)attributes.Size; });
+                                sftp.DownloadFile(remoteDirectory + s, file1, DownloadProgresBar);
                             }
                         }
                     }
+                    DownloadDirectory(sftp, remoteDirectoryConfig, localDirectoryConfig);
                 }
                 if (fix == false)
                 {
@@ -141,9 +153,39 @@ namespace loaderMinecraft
                 Application.Exit();
             }
         }
+
+        private void DownloadProgresBar(ulong uploaded)
+        {
+            progress.Invoke((MethodInvoker)delegate { progress.Value = (int)uploaded; });
+        }
+
+        public static void DownloadDirectory(SftpClient sftpClient, string sourceRemotePath, string destLocalPath)
+        {
+            Directory.CreateDirectory(destLocalPath);
+            IEnumerable<SftpFile> files = sftpClient.ListDirectory(sourceRemotePath);
+            foreach (SftpFile file in files)
+            {
+                if ((file.Name != ".") && (file.Name != ".."))
+                {
+                    string sourceFilePath = sourceRemotePath + "/" + file.Name;
+                    string destFilePath = Path.Combine(destLocalPath, file.Name);
+                    if (file.IsDirectory)
+                    {
+                        DownloadDirectory(sftpClient, sourceFilePath, destFilePath);
+                    }
+                    else
+                    {
+                        using (Stream fileStream = File.Create(destFilePath))
+                        {
+                            sftpClient.DownloadFile(sourceFilePath, fileStream);
+                        }
+                    }
+                }
+            }
+        }
+
         public void startMinecraft()
         {
-            
             Process.Start(gamePath);
             //Process.Start(@"C:\Program Files\Java\jre1.8.0_261\bin\java.exe - Xmx1G - Djava.library.path = C:\Users\eas1ly\AppData\Roaming\.minecraft\versions\Forge 1.12.2\natives\ -cp C:\Users\eas1ly\AppData\Roaming\.minecraft\versions\Forge 1.12.2\Forge 1.12.2.jar; --assetIndex 1.8 --uuid 1a2b3c4d5e6f7g8h9i0g --accessToken 1a2b3c4d5e6f7g8h9i0g --userProperties {" + "twitch_access_token"+ ":[" + "1a2b3c4d5e6f7g8h9i0g" + "]} --userType mojang --server s24.joinserver.ru --port 25750 --height 480--width 854");
         }

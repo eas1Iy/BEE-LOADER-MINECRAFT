@@ -18,6 +18,11 @@ namespace loaderMinecraft
         public string lastUpdate;
         string actualVers;
 
+        public string hostName = "s24.joinserver.ru";
+        public int port = 2022;
+        public string username = "y5bq0wrk.b11838bf";
+        public string password = "brN-eNb-eKq-B7y";
+
         bool inet()
         {
             if (Internet.CheckConnection())
@@ -30,7 +35,7 @@ namespace loaderMinecraft
         {
             if (inet() == true)
             {
-                using (var sftp = new SftpClient("s24.joinserver.ru", 2022, "y5bq0wrk.b11838bf", "brN-eNb-eKq-B7y"))
+                using (var sftp = new SftpClient(hostName, port, username, password))
                 {
                     try
                     {
@@ -63,7 +68,7 @@ namespace loaderMinecraft
         {
             if (inet() == true)
             {
-                using (var sftp = new SftpClient("s24.joinserver.ru", 2022, "y5bq0wrk.b11838bf", "brN-eNb-eKq-B7y"))
+                using (var sftp = new SftpClient(hostName, port, username, password))
                 {
                     Stream vers = File.OpenWrite(@"temp_version.ini");
                     sftp.Connect();

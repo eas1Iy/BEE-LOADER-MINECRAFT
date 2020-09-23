@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Guna.UI2.AnimatorNS.Animation animation4 = new Guna.UI2.AnimatorNS.Animation();
+            Guna.UI2.AnimatorNS.Animation animation13 = new Guna.UI2.AnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(dowloand));
             this._labelLoading = new System.Windows.Forms.Label();
             this._dragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
@@ -38,13 +38,14 @@
             this._updateLoading = new Guna.UI2.WinForms.Guna2WinProgressIndicator();
             this.updateDowloand = new System.Windows.Forms.Label();
             this._dragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this._loadingMods = new Guna.UI2.WinForms.Guna2WinProgressIndicator();
             this._ShadowForm = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this._toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.gunaVSeparator1 = new Guna.UI.WinForms.GunaVSeparator();
             this._anim = new Guna.UI2.WinForms.Guna2Transition();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this._dragControl3 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.progress = new Guna.UI2.WinForms.Guna2ProgressBar();
+            this._loadingMods = new Guna.UI2.WinForms.Guna2WinProgressIndicator();
             this.guna2CustomGradientPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.guna2CustomGradientPanel1.SuspendLayout();
@@ -56,7 +57,7 @@
             this._anim.SetDecoration(this._labelLoading, Guna.UI2.AnimatorNS.DecorationType.None);
             this._labelLoading.Font = new System.Drawing.Font("Malgun Gothic", 15F);
             this._labelLoading.ForeColor = System.Drawing.SystemColors.ControlText;
-            this._labelLoading.Location = new System.Drawing.Point(12, 141);
+            this._labelLoading.Location = new System.Drawing.Point(16, 115);
             this._labelLoading.Name = "_labelLoading";
             this._labelLoading.Size = new System.Drawing.Size(189, 29);
             this._labelLoading.TabIndex = 1;
@@ -72,7 +73,10 @@
             // 
             // guna2CustomGradientPanel2
             // 
+            this.guna2CustomGradientPanel2.Controls.Add(this.progress);
             this.guna2CustomGradientPanel2.Controls.Add(this.panel1);
+            this.guna2CustomGradientPanel2.Controls.Add(this._loadingMods);
+            this.guna2CustomGradientPanel2.Controls.Add(this._labelLoading);
             this._anim.SetDecoration(this.guna2CustomGradientPanel2, Guna.UI2.AnimatorNS.DecorationType.None);
             this.guna2CustomGradientPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(3, 3);
@@ -123,20 +127,6 @@
             this._dragControl1.TargetControl = this._labelLoading;
             this._dragControl1.UseTransparentDrag = true;
             // 
-            // _loadingMods
-            // 
-            this._loadingMods.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this._loadingMods.AnimationSpeed = 80;
-            this._loadingMods.AutoStart = true;
-            this._loadingMods.CircleSize = 5F;
-            this._anim.SetDecoration(this._loadingMods, Guna.UI2.AnimatorNS.DecorationType.None);
-            this._loadingMods.Location = new System.Drawing.Point(43, 15);
-            this._loadingMods.Name = "_loadingMods";
-            this._loadingMods.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
-            this._loadingMods.Size = new System.Drawing.Size(123, 123);
-            this._loadingMods.TabIndex = 2;
-            this._loadingMods.Visible = false;
-            // 
             // _toolTip
             // 
             this._toolTip.AllowLinksHandling = true;
@@ -162,22 +152,22 @@
             // 
             this._anim.AnimationType = Guna.UI2.AnimatorNS.AnimationType.Transparent;
             this._anim.Cursor = null;
-            animation4.AnimateOnlyDifferences = true;
-            animation4.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.BlindCoeff")));
-            animation4.LeafCoeff = 0F;
-            animation4.MaxTime = 1F;
-            animation4.MinTime = 0F;
-            animation4.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicCoeff")));
-            animation4.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicShift")));
-            animation4.MosaicSize = 0;
-            animation4.Padding = new System.Windows.Forms.Padding(0);
-            animation4.RotateCoeff = 0F;
-            animation4.RotateLimit = 0F;
-            animation4.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.ScaleCoeff")));
-            animation4.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.SlideCoeff")));
-            animation4.TimeCoeff = 0F;
-            animation4.TransparencyCoeff = 1F;
-            this._anim.DefaultAnimation = animation4;
+            animation13.AnimateOnlyDifferences = true;
+            animation13.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation13.BlindCoeff")));
+            animation13.LeafCoeff = 0F;
+            animation13.MaxTime = 1F;
+            animation13.MinTime = 0F;
+            animation13.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation13.MosaicCoeff")));
+            animation13.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation13.MosaicShift")));
+            animation13.MosaicSize = 0;
+            animation13.Padding = new System.Windows.Forms.Padding(0);
+            animation13.RotateCoeff = 0F;
+            animation13.RotateLimit = 0F;
+            animation13.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation13.ScaleCoeff")));
+            animation13.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation13.SlideCoeff")));
+            animation13.TimeCoeff = 0F;
+            animation13.TransparencyCoeff = 1F;
+            this._anim.DefaultAnimation = animation13;
             // 
             // guna2CustomGradientPanel1
             // 
@@ -200,6 +190,37 @@
             this._dragControl3.TargetControl = this._loadingMods;
             this._dragControl3.UseTransparentDrag = true;
             // 
+            // progress
+            // 
+            this.progress.BorderRadius = 5;
+            this._anim.SetDecoration(this.progress, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.progress.FillColor = System.Drawing.Color.Gainsboro;
+            this.progress.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
+            this.progress.Location = new System.Drawing.Point(20, 148);
+            this.progress.Name = "progress";
+            this.progress.ProgressBrushMode = Guna.UI2.WinForms.Enums.BrushMode.SolidTransition;
+            this.progress.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
+            this.progress.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(190)))), ((int)(((byte)(36)))));
+            this.progress.ShadowDecoration.Parent = this.progress;
+            this.progress.Size = new System.Drawing.Size(184, 13);
+            this.progress.TabIndex = 6;
+            this.progress.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.progress.Visible = false;
+            // 
+            // _loadingMods
+            // 
+            this._loadingMods.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this._loadingMods.AnimationSpeed = 80;
+            this._loadingMods.AutoStart = true;
+            this._loadingMods.CircleSize = 2F;
+            this._anim.SetDecoration(this._loadingMods, Guna.UI2.AnimatorNS.DecorationType.None);
+            this._loadingMods.Location = new System.Drawing.Point(59, 17);
+            this._loadingMods.Name = "_loadingMods";
+            this._loadingMods.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
+            this._loadingMods.Size = new System.Drawing.Size(93, 93);
+            this._loadingMods.TabIndex = 2;
+            this._loadingMods.Visible = false;
+            // 
             // dowloand
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -207,8 +228,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(636, 179);
             this.Controls.Add(this.gunaVSeparator1);
-            this.Controls.Add(this._loadingMods);
-            this.Controls.Add(this._labelLoading);
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this._anim.SetDecoration(this, Guna.UI2.AnimatorNS.DecorationType.None);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -229,7 +248,6 @@
         private System.Windows.Forms.Label _labelLoading;
         private Guna.UI2.WinForms.Guna2DragControl _dragControl2;
         private Guna.UI2.WinForms.Guna2DragControl _dragControl1;
-        private Guna.UI2.WinForms.Guna2WinProgressIndicator _loadingMods;
         private Guna.UI2.WinForms.Guna2ShadowForm _ShadowForm;
         private Guna.UI2.WinForms.Guna2HtmlToolTip _toolTip;
         private Guna.UI.WinForms.GunaVSeparator gunaVSeparator1;
@@ -240,6 +258,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label updateDowloand;
         private Guna.UI2.WinForms.Guna2DragControl _dragControl3;
+        private Guna.UI2.WinForms.Guna2ProgressBar progress;
+        private Guna.UI2.WinForms.Guna2WinProgressIndicator _loadingMods;
     }
 }
 

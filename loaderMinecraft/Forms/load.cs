@@ -18,6 +18,7 @@ namespace loaderMinecraft
         string pathMod = Settings.Default["pathMods"].ToString();
         string appdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
+        [Obsolete]
         void load_Load(object sender, EventArgs e)
         {
             _welcomLbl.Text += Application.ProductVersion;
@@ -30,6 +31,7 @@ namespace loaderMinecraft
             serverCheck();
         }
 
+        [Obsolete]
         bool serverCheck()
         {
             MineStat ms = new MineStat("s24.joinserver.ru", 25750);
@@ -132,6 +134,7 @@ namespace loaderMinecraft
             }
         }
 
+        [Obsolete]
         void playButt_Click(object sender, EventArgs e)
         {
             if (serverCheck() == true)
@@ -267,12 +270,8 @@ namespace loaderMinecraft
             }
         }
 
+        [Obsolete]
         void timer1_Tick(object sender, EventArgs e)
-        {
-            serverCheck();
-        }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
         {
             serverCheck();
         }
