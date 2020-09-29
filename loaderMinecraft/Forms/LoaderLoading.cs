@@ -126,6 +126,8 @@ namespace loaderMinecraft
 
         async void LoaderLoading_Load(object sender, EventArgs e)
         {
+            _welcomLbl.Text += Application.ProductVersion;
+            _anim.Show(_welcomLbl);
             _anim.Show(pictureBox1);
             if (await Task.Run(() => listUpdate()))
             {

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Guna.UI2.AnimatorNS.Animation animation8 = new Guna.UI2.AnimatorNS.Animation();
-            Guna.UI2.AnimatorNS.Animation animation7 = new Guna.UI2.AnimatorNS.Animation();
+            Guna.UI2.AnimatorNS.Animation animation1 = new Guna.UI2.AnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(load));
+            Guna.UI2.AnimatorNS.Animation animation2 = new Guna.UI2.AnimatorNS.Animation();
             this._welcomLbl = new System.Windows.Forms.Label();
             this.playButt = new Guna.UI2.WinForms.Guna2Button();
             this.changeExe = new Guna.UI2.WinForms.Guna2Button();
@@ -55,15 +55,16 @@
             this._dragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this._dragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.onlineLbl = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.statusLbl = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.tooltip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this._anim = new Guna.UI2.WinForms.Guna2Transition();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this._anim2 = new Guna.UI2.WinForms.Guna2Transition();
-            this.label1 = new System.Windows.Forms.Label();
-            this.statusLbl = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.onlineLbl = new System.Windows.Forms.Label();
             this.updateServerInfo = new System.Windows.Forms.Timer(this.components);
+            this._gitButt = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientPanel1.SuspendLayout();
             this.guna2CustomGradientPanel2.SuspendLayout();
             this.guna2CustomGradientPanel1.SuspendLayout();
@@ -249,6 +250,7 @@
             // 
             this._closeButt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._closeButt.ControlBoxStyle = Guna.UI2.WinForms.Enums.ControlBoxStyle.Custom;
+            this._closeButt.Cursor = System.Windows.Forms.Cursors.Hand;
             this._anim2.SetDecoration(this._closeButt, Guna.UI2.AnimatorNS.DecorationType.None);
             this._anim.SetDecoration(this._closeButt, Guna.UI2.AnimatorNS.DecorationType.None);
             this._closeButt.FillColor = System.Drawing.Color.White;
@@ -266,6 +268,7 @@
             this._hideButt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._hideButt.ControlBoxStyle = Guna.UI2.WinForms.Enums.ControlBoxStyle.Custom;
             this._hideButt.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this._hideButt.Cursor = System.Windows.Forms.Cursors.Hand;
             this._anim2.SetDecoration(this._hideButt, Guna.UI2.AnimatorNS.DecorationType.None);
             this._anim.SetDecoration(this._hideButt, Guna.UI2.AnimatorNS.DecorationType.None);
             this._hideButt.FillColor = System.Drawing.Color.White;
@@ -475,6 +478,7 @@
             // 
             // guna2CustomGradientPanel2
             // 
+            this.guna2CustomGradientPanel2.Controls.Add(this._gitButt);
             this.guna2CustomGradientPanel2.Controls.Add(this.onlineLbl);
             this.guna2CustomGradientPanel2.Controls.Add(this.label3);
             this.guna2CustomGradientPanel2.Controls.Add(this.statusLbl);
@@ -496,6 +500,54 @@
             this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(527, 248);
             this.guna2CustomGradientPanel2.TabIndex = 20;
             // 
+            // onlineLbl
+            // 
+            this.onlineLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.onlineLbl.Cursor = System.Windows.Forms.Cursors.Help;
+            this._anim.SetDecoration(this.onlineLbl, Guna.UI2.AnimatorNS.DecorationType.None);
+            this._anim2.SetDecoration(this.onlineLbl, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.onlineLbl.Font = new System.Drawing.Font("Malgun Gothic", 12F);
+            this.onlineLbl.Location = new System.Drawing.Point(380, 131);
+            this.onlineLbl.Name = "onlineLbl";
+            this.onlineLbl.Size = new System.Drawing.Size(66, 21);
+            this.onlineLbl.TabIndex = 16;
+            this.onlineLbl.Text = "0/10";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._anim.SetDecoration(this.label3, Guna.UI2.AnimatorNS.DecorationType.None);
+            this._anim2.SetDecoration(this.label3, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label3.Font = new System.Drawing.Font("Malgun Gothic", 12F);
+            this.label3.Location = new System.Drawing.Point(302, 131);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(72, 21);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Онлайн:";
+            // 
+            // statusLbl
+            // 
+            this.statusLbl.Cursor = System.Windows.Forms.Cursors.Help;
+            this._anim.SetDecoration(this.statusLbl, Guna.UI2.AnimatorNS.DecorationType.None);
+            this._anim2.SetDecoration(this.statusLbl, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.statusLbl.Font = new System.Drawing.Font("Malgun Gothic", 12F);
+            this.statusLbl.Location = new System.Drawing.Point(202, 131);
+            this.statusLbl.Name = "statusLbl";
+            this.statusLbl.Size = new System.Drawing.Size(94, 21);
+            this.statusLbl.TabIndex = 14;
+            this.statusLbl.Text = "Работает";
+            // 
+            // label1
+            // 
+            this._anim.SetDecoration(this.label1, Guna.UI2.AnimatorNS.DecorationType.None);
+            this._anim2.SetDecoration(this.label1, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label1.Font = new System.Drawing.Font("Malgun Gothic", 12F);
+            this.label1.Location = new System.Drawing.Point(65, 131);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(131, 21);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Статус сервера:";
+            // 
             // tooltip
             // 
             this.tooltip.AllowLinksHandling = true;
@@ -510,22 +562,22 @@
             // 
             this._anim.AnimationType = Guna.UI2.AnimatorNS.AnimationType.Transparent;
             this._anim.Cursor = null;
-            animation8.AnimateOnlyDifferences = false;
-            animation8.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation8.BlindCoeff")));
-            animation8.LeafCoeff = 0F;
-            animation8.MaxTime = 1F;
-            animation8.MinTime = 0F;
-            animation8.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation8.MosaicCoeff")));
-            animation8.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation8.MosaicShift")));
-            animation8.MosaicSize = 0;
-            animation8.Padding = new System.Windows.Forms.Padding(0);
-            animation8.RotateCoeff = 0F;
-            animation8.RotateLimit = 0F;
-            animation8.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation8.ScaleCoeff")));
-            animation8.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation8.SlideCoeff")));
-            animation8.TimeCoeff = 0F;
-            animation8.TransparencyCoeff = 1F;
-            this._anim.DefaultAnimation = animation8;
+            animation1.AnimateOnlyDifferences = false;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 0;
+            animation1.Padding = new System.Windows.Forms.Padding(0);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 0F;
+            animation1.TransparencyCoeff = 1F;
+            this._anim.DefaultAnimation = animation1;
             this._anim.Interval = 15;
             // 
             // guna2CustomGradientPanel1
@@ -549,77 +601,56 @@
             // 
             this._anim2.AnimationType = Guna.UI2.AnimatorNS.AnimationType.HorizBlind;
             this._anim2.Cursor = null;
-            animation7.AnimateOnlyDifferences = true;
-            animation7.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation7.BlindCoeff")));
-            animation7.LeafCoeff = 0F;
-            animation7.MaxTime = 1F;
-            animation7.MinTime = 0F;
-            animation7.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation7.MosaicCoeff")));
-            animation7.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation7.MosaicShift")));
-            animation7.MosaicSize = 0;
-            animation7.Padding = new System.Windows.Forms.Padding(0);
-            animation7.RotateCoeff = 0F;
-            animation7.RotateLimit = 0F;
-            animation7.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation7.ScaleCoeff")));
-            animation7.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation7.SlideCoeff")));
-            animation7.TimeCoeff = 0F;
-            animation7.TransparencyCoeff = 0F;
-            this._anim2.DefaultAnimation = animation7;
+            animation2.AnimateOnlyDifferences = true;
+            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
+            animation2.LeafCoeff = 0F;
+            animation2.MaxTime = 1F;
+            animation2.MinTime = 0F;
+            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
+            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
+            animation2.MosaicSize = 0;
+            animation2.Padding = new System.Windows.Forms.Padding(0);
+            animation2.RotateCoeff = 0F;
+            animation2.RotateLimit = 0F;
+            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
+            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
+            animation2.TimeCoeff = 0F;
+            animation2.TransparencyCoeff = 0F;
+            this._anim2.DefaultAnimation = animation2;
             this._anim2.Interval = 15;
-            // 
-            // label1
-            // 
-            this._anim.SetDecoration(this.label1, Guna.UI2.AnimatorNS.DecorationType.None);
-            this._anim2.SetDecoration(this.label1, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.label1.Font = new System.Drawing.Font("Malgun Gothic", 12F);
-            this.label1.Location = new System.Drawing.Point(65, 131);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 21);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Статус сервера:";
-            // 
-            // statusLbl
-            // 
-            this.statusLbl.Cursor = System.Windows.Forms.Cursors.Help;
-            this._anim.SetDecoration(this.statusLbl, Guna.UI2.AnimatorNS.DecorationType.None);
-            this._anim2.SetDecoration(this.statusLbl, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.statusLbl.Font = new System.Drawing.Font("Malgun Gothic", 12F);
-            this.statusLbl.Location = new System.Drawing.Point(202, 131);
-            this.statusLbl.Name = "statusLbl";
-            this.statusLbl.Size = new System.Drawing.Size(94, 21);
-            this.statusLbl.TabIndex = 14;
-            this.statusLbl.Text = "Работает";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._anim.SetDecoration(this.label3, Guna.UI2.AnimatorNS.DecorationType.None);
-            this._anim2.SetDecoration(this.label3, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.label3.Font = new System.Drawing.Font("Malgun Gothic", 12F);
-            this.label3.Location = new System.Drawing.Point(302, 131);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 21);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Онлайн:";
-            // 
-            // onlineLbl
-            // 
-            this.onlineLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.onlineLbl.Cursor = System.Windows.Forms.Cursors.Help;
-            this._anim.SetDecoration(this.onlineLbl, Guna.UI2.AnimatorNS.DecorationType.None);
-            this._anim2.SetDecoration(this.onlineLbl, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.onlineLbl.Font = new System.Drawing.Font("Malgun Gothic", 12F);
-            this.onlineLbl.Location = new System.Drawing.Point(380, 131);
-            this.onlineLbl.Name = "onlineLbl";
-            this.onlineLbl.Size = new System.Drawing.Size(66, 21);
-            this.onlineLbl.TabIndex = 16;
-            this.onlineLbl.Text = "0/10";
             // 
             // updateServerInfo
             // 
             this.updateServerInfo.Enabled = true;
             this.updateServerInfo.Interval = 5000;
             this.updateServerInfo.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // _gitButt
+            // 
+            this._gitButt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._gitButt.Animated = true;
+            this._gitButt.BorderRadius = 8;
+            this._gitButt.CheckedState.Parent = this._gitButt;
+            this._gitButt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this._gitButt.CustomImages.Parent = this._gitButt;
+            this._anim2.SetDecoration(this._gitButt, Guna.UI2.AnimatorNS.DecorationType.None);
+            this._anim.SetDecoration(this._gitButt, Guna.UI2.AnimatorNS.DecorationType.None);
+            this._gitButt.FillColor = System.Drawing.Color.Transparent;
+            this._gitButt.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this._gitButt.ForeColor = System.Drawing.Color.White;
+            this._gitButt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(96)))));
+            this._gitButt.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
+            this._gitButt.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this._gitButt.HoverState.ForeColor = System.Drawing.Color.Transparent;
+            this._gitButt.HoverState.Parent = this._gitButt;
+            this._gitButt.Image = global::BEE.Properties.Resources._github;
+            this._gitButt.ImageSize = new System.Drawing.Size(50, 50);
+            this._gitButt.Location = new System.Drawing.Point(437, 182);
+            this._gitButt.Name = "_gitButt";
+            this._gitButt.ShadowDecoration.Parent = this._gitButt;
+            this._gitButt.Size = new System.Drawing.Size(62, 57);
+            this._gitButt.TabIndex = 17;
+            this._gitButt.Click += new System.EventHandler(this._gitButt_Click);
             // 
             // load
             // 
@@ -642,7 +673,7 @@
             this.MinimumSize = new System.Drawing.Size(509, 224);
             this.Name = "load";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "BEE - Меню.";
+            this.Text = "BEE - Главное меню";
             this.TransparencyKey = System.Drawing.Color.Green;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.load_FormClosing);
             this.Load += new System.EventHandler(this.load_Load);
@@ -688,5 +719,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label onlineLbl;
         private System.Windows.Forms.Timer updateServerInfo;
+        private Guna.UI2.WinForms.Guna2Button _gitButt;
     }
 }

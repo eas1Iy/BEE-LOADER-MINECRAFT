@@ -63,6 +63,16 @@ namespace BEE.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _github {
+            get {
+                object obj = ResourceManager.GetObject("_github", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bee_animator {
             get {
                 object obj = ResourceManager.GetObject("bee_animator", resourceCulture);

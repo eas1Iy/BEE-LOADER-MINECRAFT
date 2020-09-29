@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Guna.UI.Animation.Animation animation1 = new Guna.UI.Animation.Animation();
+            Guna.UI.Animation.Animation animation5 = new Guna.UI.Animation.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoaderLoading));
             this._animate = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this._drag = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this._welcomLbl = new System.Windows.Forms.Label();
             this._updateLoading = new Guna.UI2.WinForms.Guna2WinProgressIndicator();
             this.update = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -58,8 +59,10 @@
             // 
             // guna2CustomGradientPanel2
             // 
+            this.guna2CustomGradientPanel2.Controls.Add(this._welcomLbl);
             this.guna2CustomGradientPanel2.Controls.Add(this._updateLoading);
             this.guna2CustomGradientPanel2.Controls.Add(this.update);
+            this.guna2CustomGradientPanel2.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this._anim.SetDecoration(this.guna2CustomGradientPanel2, Guna.UI.Animation.DecorationType.None);
             this.guna2CustomGradientPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2CustomGradientPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
@@ -73,11 +76,26 @@
             this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(527, 248);
             this.guna2CustomGradientPanel2.TabIndex = 20;
             // 
+            // _welcomLbl
+            // 
+            this._welcomLbl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._anim.SetDecoration(this._welcomLbl, Guna.UI.Animation.DecorationType.None);
+            this._welcomLbl.Font = new System.Drawing.Font("Malgun Gothic", 15F);
+            this._welcomLbl.Location = new System.Drawing.Point(5, 6);
+            this._welcomLbl.Name = "_welcomLbl";
+            this._welcomLbl.Size = new System.Drawing.Size(228, 28);
+            this._welcomLbl.TabIndex = 4;
+            this._welcomLbl.Text = "BEE LOADER - ";
+            this._welcomLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this._welcomLbl.Visible = false;
+            // 
             // _updateLoading
             // 
             this._updateLoading.AnimationSpeed = 80;
             this._updateLoading.AutoStart = true;
             this._updateLoading.CircleSize = 1F;
+            this._updateLoading.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this._anim.SetDecoration(this._updateLoading, Guna.UI.Animation.DecorationType.None);
             this._updateLoading.Location = new System.Drawing.Point(340, 80);
             this._updateLoading.Name = "_updateLoading";
@@ -87,6 +105,7 @@
             // 
             // update
             // 
+            this.update.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this._anim.SetDecoration(this.update, Guna.UI.Animation.DecorationType.None);
             this.update.Font = new System.Drawing.Font("Malgun Gothic", 10F);
             this.update.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -100,6 +119,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this._anim.SetDecoration(this.pictureBox1, Guna.UI.Animation.DecorationType.None);
             this.pictureBox1.Image = global::BEE.Properties.Resources.bee_animator;
             this.pictureBox1.Location = new System.Drawing.Point(12, 40);
@@ -123,22 +143,22 @@
             // 
             this._anim.AnimationType = Guna.UI.Animation.AnimationType.Transparent;
             this._anim.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 1F;
-            this._anim.DefaultAnimation = animation1;
+            animation5.AnimateOnlyDifferences = true;
+            animation5.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.BlindCoeff")));
+            animation5.LeafCoeff = 0F;
+            animation5.MaxTime = 1F;
+            animation5.MinTime = 0F;
+            animation5.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicCoeff")));
+            animation5.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicShift")));
+            animation5.MosaicSize = 0;
+            animation5.Padding = new System.Windows.Forms.Padding(0);
+            animation5.RotateCoeff = 0F;
+            animation5.RotateLimit = 0F;
+            animation5.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.ScaleCoeff")));
+            animation5.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.SlideCoeff")));
+            animation5.TimeCoeff = 0F;
+            animation5.TransparencyCoeff = 1F;
+            this._anim.DefaultAnimation = animation5;
             // 
             // guna2CustomGradientPanel1
             // 
@@ -202,5 +222,6 @@
         private Guna.UI2.WinForms.Guna2DragControl _drag3;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel2;
+        private System.Windows.Forms.Label _welcomLbl;
     }
 }

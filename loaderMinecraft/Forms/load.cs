@@ -1,4 +1,5 @@
-﻿using BEE.Properties;
+﻿using BEE;
+using BEE.Properties;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.Diagnostics;
@@ -216,7 +217,7 @@ namespace loaderMinecraft
                             "Нажимая 'Играть' - у вас проверятся наличие необходимых модов, не нужные удалятся, нужные скачаются, если их нет, после чего запустится вау Лаунчер майнкрафта, к которому вы указали путь.\n" +
                             "Нажимая 'Проверить моды' - произойдёт проверка модов без запуска Игры.\n" +
                             "Нажимая 'Удалить моды' - вы очистите папку с модами.\n\n" +
-                            "Приятного использования :)", "Помощь в использовании.", MessageBoxButtons.OK);
+                            "Приятного использования :)", "Помощь в использовании.", MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
 
         void _logoGif_Click(object sender, EventArgs e)
@@ -274,6 +275,15 @@ namespace loaderMinecraft
         void timer1_Tick(object sender, EventArgs e)
         {
             serverCheck();
+        }
+
+        void _gitButt_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Название программы: BEE LOADER \n" +
+                                "Создатель программы: #eas1ly [vk.com/eas1ly] \n" +
+                                $"Версия программы: {Application.ProductVersion} \n\n\n" +
+                                $"Исходники программы находятся в свободном доступе, нажмите Да[Yes], чтобы открыть GitHub и получить доступ к исходному коду.", "BEE LOADER INFORMATION", MessageBoxButtons.YesNo,MessageBoxIcon.Information) == DialogResult.Yes)
+            Process.Start("https://github.com/eas1Iy/loaderMinecraft");
         }
     }
 }

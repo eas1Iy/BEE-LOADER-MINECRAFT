@@ -34,7 +34,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Others\icon.ico</ApplicationIcon>
+    <ApplicationIcon>beeIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>Others\app.manifest</ApplicationManifest>
@@ -128,7 +128,9 @@
     <None Include="Others\App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="beeIcon.ico" />
     <Content Include="Others\icon.ico" />
+    <None Include="Resources\_github.png" />
     <None Include="Resources\tenor.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,5 +1,4 @@
 ﻿using BEE.Properties;
-using Guna.UI.Lib.ScrollBar;
 using Renci.SshNet;
 using Renci.SshNet.Sftp;
 using System;
@@ -76,7 +75,7 @@ namespace loaderMinecraft
         }
 
 
-        public async void DownloadAll1() // способ №1 - ошибка с паролем.
+        public async void DownloadAll1() // скачивание файлов
         {
             string remoteDirectory = "/user_mods/";
             string remoteDirectoryConfig = "/user_configs/";
@@ -159,7 +158,7 @@ namespace loaderMinecraft
             progress.Invoke((MethodInvoker)delegate { progress.Value = (int)uploaded; });
         }
 
-        public static void DownloadDirectory(SftpClient sftpClient, string sourceRemotePath, string destLocalPath)
+        public static void DownloadDirectory(SftpClient sftpClient, string sourceRemotePath, string destLocalPath)  // скачивание дирректорий
         {
             Directory.CreateDirectory(destLocalPath);
             IEnumerable<SftpFile> files = sftpClient.ListDirectory(sourceRemotePath);
@@ -184,7 +183,7 @@ namespace loaderMinecraft
             }
         }
 
-        public void startMinecraft()
+        public void startMinecraft()  // запуск майнкрафта
         {
             Process.Start(gamePath);
             //Process.Start(@"C:\Program Files\Java\jre1.8.0_261\bin\java.exe - Xmx1G - Djava.library.path = C:\Users\eas1ly\AppData\Roaming\.minecraft\versions\Forge 1.12.2\natives\ -cp C:\Users\eas1ly\AppData\Roaming\.minecraft\versions\Forge 1.12.2\Forge 1.12.2.jar; --assetIndex 1.8 --uuid 1a2b3c4d5e6f7g8h9i0g --accessToken 1a2b3c4d5e6f7g8h9i0g --userProperties {" + "twitch_access_token"+ ":[" + "1a2b3c4d5e6f7g8h9i0g" + "]} --userType mojang --server s24.joinserver.ru --port 25750 --height 480--width 854");
