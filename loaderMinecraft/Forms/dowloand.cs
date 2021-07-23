@@ -22,10 +22,10 @@ namespace loaderMinecraft
         string gamePath = Settings.Default["pathLauncher"].ToString();
         public string pathMod = "";
 
-        public string hostName = "s24.joinserver.ru";
+        public string hostName = "HOST";
         public int port = 2022;
-        public string username = "y5bq0wrk.b11838bf";
-        public string password = "brN-eNb-eKq-B7y";
+        public string username = "USERNAME";
+        public string password = "PASSWORD";
 
         List<string> serverMods;
         public bool fix;
